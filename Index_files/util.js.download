@@ -1,0 +1,124 @@
+//***************************************************
+//*
+//* Program Name       : util.js
+//*
+//* Copyright Notice   : COPYRIGHT (C) 2000 BY HSBC
+//*
+//* Creation Date      : 22 Jun 2000
+//*
+//* Programmer         : IFS Phase 2 Team
+//*
+//* Abstract           : JavaScript functions for PIB2
+//*
+//* Amendment History:
+//*
+//* Date       By            Description
+//* ---------  ------------- ------------------------------------------------
+//   3 Jan 05  Eddy Chang   Change popupDualLifeSaveInstr() to popupDualLifeSaveInstr(link)
+//   3 Jan 05  Eddy Chang   Change popupDualLifeInsuranceCert() to popupDualLifeInsuranceCert(link)
+//   3 Jan 05  Eddy Chang   Change popupBranchInfo() to popupBranchInfo(link)
+//   3 Jan 05  Eddy Chang   Change popSaveInstrNote() to popSaveInstrNote(link)
+//   3 Jan 05  Eddy Chang   Change popupStopLimitSellTC() to popupStopLimitSellTC(link)
+//   3 Jan 05  Eddy Chang   Change popupInvHPAcctTC() to popupInvHPAcctTC(link)
+//   3 Jan 05  Eddy Chang   Change popupInvPVAcctTC() to popupInvPVAcctTC(link)
+//   3 Jan 05  Eddy Chang   Change popupSecAcctTC() to popupSecAcctTC(link)
+//   3 Jan 05  Eddy Chang   Change popupHPCreditCardTC() to popupHPCreditCardTC(link)
+//   3 Jan 05  Eddy Chang   Change popupDAcctLimit(x) to popupDAcctLimit(action,link,x)
+//   3 Jan 05  Eddy Chang   Change startTimer() to startTimer(link)
+//   3 Jan 05  Eddy Chang   Change popUpTimer() to popUpTimer(link)
+//   3 Jan 05  Eddy Chang   Change popUpDisclaimer() to popUpDisclaimer(link)
+//   3 Jan 05  Eddy Chang   Change popUpTermsAndConditions() to popUpTermsAndConditions(link)
+//   3 Jan 05  Eddy Chang   Change popUpFAQ() to popUpFAQ(link)
+//   3 Jan 05  Eddy Chang   Change popUpFAQServiceFees() to  popUpFAQServiceFees(link)
+//   3 Jan 05  Eddy Chang   Change popUpSecFaq() to popUpSecFaq(link)
+//   3 Jan 05  Eddy Chang   Change popUpSecAdPwd() to popUpSecAdPwd(link)
+//   3 Jan 05  Eddy Chang   Change popUpSecurity(x, y) to popUpSecurity(link,x, y)
+//   3 Jan 05  Eddy Chang   Change popupBalance(x) to popupBalance(link,action,x)
+//   3 Jan 05  Eddy Chang   Change popupCalFutureVal(DepCur, LnkCur, Amount, DbAcct, DpAcct, DpTerm) to popupCalFutureVal(link, action,DepCur, LnkCur, Amount, DbAcct, DpAcct, DpTerm)
+//   3 Jan 05  Eddy Chang   Change popupForCurrGetRate(BA, RC, RA, DA, TAC, WhichAccount, OA) to popupForCurrGetRate(link,action, BA, RC, RA, DA, TAC, WhichAccount, OA)
+//   3 Jan 05  Eddy Chang   Change popupBuySellGoldGetRate(RA, DA, OA) to popupBuySellGoldGetRate(link,action,RA, DA, OA)
+//   3 Jan 05  Eddy Chang   Change popupRemGetRate(CA, RC, RA, DA) to popupRemGetRate(link,action,CA, RC, RA, DA)
+//   3 Jan 05  Eddy Chang   Change popupBuyingPower(SecAcct, SetAcct) to popupBuyingPower(link,action,SecAcct, SetAcct)
+//   3 Jan 05  Eddy Chang   Change openTimetable() to openTimetable(link)
+//   3 Jan 05  Eddy Chang   Change popUpUTRestriction() to popUpUTRestriction(link)
+//   3 Jan 05  Eddy Chang   Change popUpMpfHotline() to popUpMpfHotline(link)
+//   3 Jan 05  Eddy Chang   Change popISMoreInfo(info) to popISMoreInfo(link)
+//   3 Jan 05  Eddy Chang   Change redemption() to redemption(link)
+//  26 Feb 05  Alex Cheng   P2G Migration - Syn PIB16
+//  19 Apr 05  Kelly Mai    Add function redemption(logoffURL, redirectPageID)
+//  02 Jun 05  Basel Zhang  Change startTimer() and popUpTimer().
+//  16 Jun 05  Jerry Zheng  P2G Migration - syn PIB17B
+//			    Changed function list:
+//		     	    delelte popupWinWinTC() & popupAllInOneTC()
+//			    add popupCalFutureValSid(link, action, DepCur, LnkCur, Amount, DbAcct, DpAcct, DpTerm)
+//			    add popupFundsOfTheQuarter()
+//			    add mgmRegisterTrackGif(referURL) & mgmReferTrackGif(referURL) & mgmRegisterLogOff(link) & mgmReferLogOff(link)
+//			    modify redirectIPO()
+//			    add popUpRpqFaq()
+//  08 Jul 05  Jonathan Xue remove functions:mgmRegisterTrackGif(referURL) & mgmReferTrackGif(referURL) & mgmRegisterLogOff(link) & mgmReferLogOff(link)
+//  12 Jul 05  Jonathan Xue Add function:lnWaitAtConfirmation
+//  03 Aug 05  Rokcall Gu   Fix the font style problem in function lnWaitAtConfirmation
+//  05 Sep 05  Vincent Chen Change popUpSecMain(link) to popUpSecMain()
+//  18 Jan 06  Vincent chen Change the inactivity time-out alert from 15 minutes to 12 minutes
+//  04 Apr 06  Ryan         Change the function:popInsuranceProductHighlight(), adding the argument:IFI, IFIH
+//  05 Apr 06  Ryan 	    Change the function:popInsuranceSummaryOfCover(), adding the argument:IFI
+//  13 Apr 06  Gary         combine the IFI,IHR,IOP in popInsuranceProductHighlight(),popInsuranceSummaryOfCover()
+//  08 Sep 06 Eddy	    add pws_hbap_popupPdf(helpUrl ,windowName, winProperties)	 
+//  22 Sep 06  Ken   	    Update some PWS links for Loans Interest Rates
+//  26 Sep 06  Cherry       Added anchor  for popupInsuranceCmcProductHighlight
+//  27 Sep 06  Wesley ZHU   Change the link to redraw-rate in popUpRpiRate()
+//  28 Sep 06  Raymond Cai  Fix PWS link in the function:popInsuranceMakeClaim()
+//  05 Oct 06  Raymond Cai  Change PWS link in the function: popInsuranceProductHighlights()
+//  05 Oct 06  Wesley ZHU   Change PWS link in the function: popupAutosweepFXLearnMore()
+//  16 Nov 06  Ken          Fix the url linkage on TT & SITT pages
+//  23 Nov 06  Ken          Change the popup link of Health Check for Helper Insurance
+//  11 Dec 06  Kevin Ding   Add functions popupSVServiceCharge(),popupSVDefaultPage(),popupInvSVAcctTC.
+//  02 Jan 07  Ken          Add method blurOrderPrice() for All-Or-Nothing Changed
+//  01 Mar 07  Arthur       Amend popupInvSVAcctTC().
+//  13 Jun 07  Cherry       Change Meta Values in Themes.
+//  14 Jun 07  Cherry       Amend URL in popUpAuctionTrade().
+//  20 Jun 07  Gary         Amend popMerchantList() and popAutopayRecipientList()
+//  20 Jun 07  Gary         Add popUpPilLongPromo() and popUpRcfLongPromo()
+//  02 Nov 07  Mark         Amend popupCalFutureVal() to enlarge window size for Time Deposit
+//  14 Nov 07  Julie	    Remove unused javascript function
+//  09 Sep 09  Julie	    Add popup function for logon theme
+//  11 Nov 09  Andy Luo     Add popUpFundExpressPage(link)
+//***********************************************************
+	
+	var transgif_url = '/favicon.ico';
+
+	function popUpDisclaimer(link){
+        var disclaimerwin = window.open(link,'disclaimer','width=400,height=400,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes,resizable=yes');
+		disclaimerwin.focus();
+	}//End of function popUpDisclaimer()
+
+	function popUpTermsAndConditions(link){
+        var termsandconditionwin = window.open(link,'termsandcondition','width=400,height=400,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes,resizable=yes');
+		termsandconditionwin.focus();
+	}//End of function popUpTermsAndCondition()
+	
+	function printAck(){
+      if (navigator.userAgent.toLowerCase().indexOf("mac")!=-1) {
+			alert("To print this screen, please press 'Command-P' and use Landscape printing option");
+	   }
+	   else{
+			window.print();
+		}
+	}
+
+	function getlink(location) {
+		if(location==null || location=="") {
+			return transgif_url;	
+		}
+		else
+			return location;
+	}
+	function bde_hbap_logon_popUp(url) {
+		var faqwin = window.open(url,'popup','width=400,height=400,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes,resizable=yes');
+		faqwin.focus();
+	}
+
+function popUpFundExpressPage(link){
+	var win = window.open(link, 'FundExpress', 'width=800,height=750,top=0,left=0,menubar=yes,toolbar=yes,directories=no,location=yes,scrollbars=yes,status=yes,resizable=yes');
+	win.focus();
+}

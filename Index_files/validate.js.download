@@ -1,0 +1,784 @@
+//var TotalErrorMessage = "";
+//var WaitFlag = true;
+//var Flag = false;
+//var submitForm = "yes";
+var LogonLink = "https://www.ebanking.hsbc.com.hk/1/2/logon"
+//var validateFlag = 0;
+
+var oldstring;	//variables used for checker()
+var hsbcCookieDomain = ".hsbc.com.hk";
+var hsbcCookiePath = "/";
+
+
+function hk_amh_p2g_ebank_setPublicCookie(name, value, path, domain, maxAge, isSecure) {
+	var expireDate = new Date ();
+	var offset = maxAge / 1;
+	var expiryString = "";
+
+	if (offset > 0) {
+		expireDate.setSeconds(expireDate.getSeconds()+offset);
+		expiryString = ";expires=" + expireDate.toGMTString();
+	} else if (offset == 0) {
+		expireDate.setYear(expireDate.getYear()-1);
+		expiryString = ";expires=" + expireDate.toGMTString();
+	} else {
+		expiryString = ";";
+	}
+
+	document.cookie = name + "=" +escape( value ) + expiryString
+					+ ( ( path ) ? ";path=" + path : "" )
+					+ ( ( domain ) ? ";domain=" + domain : "" )
+					+ ( ( isSecure ) ? ";secure" : "" );
+}
+
+function removeHSBCCookie(name) {
+	var allcookies = document.cookie;
+	var pos = allcookies.indexOf(name + '=');
+	if (pos != -1) {
+		var lasthour = new Date();
+		lasthour.setHours(lasthour.getHours()-1);
+		cookiestring = name + '=' + escape('') + ';EXPIRES=' + lasthour.toUTCString();
+		if (hsbcCookiePath != null) {
+			cookiestring = cookiestring + ';PATH=' + hsbcCookiePath;
+		}
+		if (hsbcCookieDomain != null) {
+			cookiestring = cookiestring + ';DOMAIN=' + hsbcCookieDomain;
+		}
+		document.cookie = cookiestring;
+	}
+}
+
+function getHSBCCookie(cookieName){
+	var cookieStr = document.cookie;
+	if(cookieStr == ""){
+		return null;
+	}
+	
+	var cookieArr = cookieStr.split(";");
+	var pos = -1;
+	for(var i=0; i<cookieArr.length; i++){
+		pos = cookieArr[i].indexOf("=");
+		if(pos >0 ){
+			if(cookieArr[i].substring(0,pos).trim() == cookieName){		
+				return decodeURIComponent(cookieArr[i].substring(pos+1, cookieArr[i].length));
+			}
+		}
+	}
+	
+	return null;
+}
+
+function getURLParam(strParamName){
+  var strReturn = "";
+  var strHref = window.location.href;
+  if ( strHref.indexOf("?") > -1 ){
+    var strQueryString = strHref.substr(strHref.indexOf("?")).toLowerCase();
+    var aQueryString = strQueryString.split("&");
+    for ( var iParam = 0; iParam < aQueryString.length; iParam++ ){
+      if ( 
+				aQueryString[iParam].indexOf(strParamName.toLowerCase() + "=") > -1 ){
+        var aParam = aQueryString[iParam].split("=");
+        strReturn = aParam[1];
+        break;
+      }
+    }
+  }
+  return unescape(strReturn);
+}
+
+
+function format_no(str,noOfDec)
+{
+   var numStr = new String(str);
+   var sign = "";
+   //var result = "";
+
+
+if (numStr.length==0){
+	return numStr;
+}else{
+
+
+   // Remove sign before formatting
+   if(numStr.substr(0,1)=="+" || numStr.substr(0,1)=="-")
+   {
+      sign = numStr.substr(0,1);
+      numStr = numStr.substr(1);
+   }
+
+   var lenOfHead = numStr.indexOf(".",0);
+   var tail;
+
+   if(lenOfHead==0)
+   {
+      numStr = "0" + numStr;
+      lenOfHead = 1;
+   }
+
+   // Format decimal place
+   if(lenOfHead==-1)
+   {
+      tail = ".";
+      for(var i=0; i<noOfDec; i++)
+         tail += "0";
+      lenOfHead = numStr.length;
+   }
+   else
+      tail = numStr.substr(lenOfHead,noOfDec+1)
+
+
+   while(tail.length-1<noOfDec)
+      tail += "0";
+
+   var result = numStr.substr(0,lenOfHead);
+
+   if(noOfDec!=0){
+   	//alert (result+tail);
+      return(result + tail);}
+   else
+      return(result);
+
+}
+
+}
+
+
+function checker(element){
+
+    var newstring="";
+    var counter;
+    var counter2;
+    var counter3;
+    var iz;
+    var i;
+    var indexer = new Array(2);
+
+    iz = 0;
+    i = 0;
+    counter = 0;
+    counter2 = 0;
+    counter3 = 0;
+    newstring = element.value;
+
+    while (iz < newstring.length){
+    	if (iz>=1){
+    	    if (newstring.substring(iz,iz+1)== " " && newstring.substring(iz-1,iz) == " "){
+    	    	element.value = oldstring;
+    	    	return false;
+    	    }
+    	}
+    	if (newstring.substring(iz,iz+1) == " " && (!(i%35 == 0) || i == 0)){
+    	    counter2 = i % 35 + 1;
+	}
+	if (newstring.substring(iz,iz+1) == "\n"){
+	    counter = counter + 1; i = 0; counter2 = 0;
+	}
+	else {
+	    i = i + 1;
+	}
+    	if (i > 35) {
+	    counter = counter + 1;
+	    indexer[counter3]=iz+1;
+	    counter3 = counter3 + 1;
+	    if(counter2 == 0) {
+	   	i = i - 35;
+	    }
+	    else {
+	    	i = i - counter2;
+	    	counter2 = 0;
+	    }
+	}
+	iz = iz + 1;
+    }
+    if (newstring.charAt(indexer[0]) == '\n') {
+	counter = counter - 1;
+    }
+    if (newstring.charAt(indexer[1]) == '\n') {
+	counter = counter - 1;
+    }
+    if (counter>=3){
+    	element.value = oldstring;
+    	return false;
+    }
+    else{
+        oldstring = element.value;
+        return true;
+    }
+}
+
+function setErrorMsg(field1, desc, totalErrorMessage, flag){
+		totalErrorMessage.value += desc + "\n";
+		chkFocus(field1, flag);
+}
+
+function chkBlank(field1, fieldDesc1, totalErrorMessage, flag){
+	if (field1.value.length >0 ) {
+		totalErrorMessage.value += Error_103.replace(/~~1/, getDesc(fieldDesc1)) + "\n";
+		chkFocus(field1, flag);
+	}
+}
+
+function isCookieSupported() {
+	document.cookie = "cookie=enable";
+	if (document.cookie.length > 0)
+		return true;
+	return false;
+}
+
+function isBrowserSupported()
+{
+	if((navigator.appName.indexOf("Netscape")>-1)) //Netscape must greater than version 4
+	{
+		browserVersion = navigator.appVersion;
+		End = browserVersion.indexOf("[");
+
+		if(End > -1)
+			VersionNo = browserVersion.substring(0,End);
+		else
+			VersionNo = browserVersion.substring(0,browserVersion.indexOf("("));
+		if (parseFloat(VersionNo) >= 4.07)
+
+			return true;
+	}
+	if((navigator.appName.indexOf("Microsoft")>-1)) //IE must greater than verison 5
+	{
+		browserName = navigator.appVersion;
+		VersionPos=browserName.lastIndexOf("MSIE") + 5;
+		VersionNo = browserName.substring(VersionPos,VersionPos+1);
+		if(parseFloat(VersionNo)>=5){
+			return true;
+		}
+	}
+	return false;
+}
+
+function initform()
+{
+	if (isBrowserSupported() && isCookieSupported())
+		return true;
+	else
+		return false;
+}
+
+function setSubmitFormAllowed(submitForm){
+	submitForm.value = "yes";
+}
+
+function checkIfSubmitted(submitForm){
+	if(submitForm.value=="yes"){
+		submitForm.value="no";
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function checkIfSubmittedHelp(submitForm){
+	if(submitForm.value=="yes"){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function chkSecPwd(x, fieldDesc, obj, totalErrorMessage, flag){
+	if(x.length<8){
+		ErrorMessage=Error_547.replace(/~~1/,getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage, obj, totalErrorMessage, flag));
+	}
+	
+	for(y = 0; y<x.length; y++)
+	{
+		charCode = x.charCodeAt(y);
+		if((charCode >= 48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >=97 && charCode <= 122));
+			//continue;
+		else
+			return(setErrorMessage(Error_547.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+	}
+	
+	return(true);
+}
+
+function chkOTP(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+	if(chknum(x))
+		return(true);
+	else
+		return(setErrorMessage(Error_546.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+}
+
+function chkEqual(x,y,fieldDescX,fieldDescY,objX,objY, totalErrorMessage, flag){
+	if(x!=y){
+		ErrorMessage = Error_29.replace(/~~1/,getDesc(fieldDescX));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,getDesc(fieldDescY)),objX, totalErrorMessage, flag));
+	}
+	return(true);
+}
+
+function chkNotEqual(x,y,fieldDescX,fieldDescY,objX,objY, totalErrorMessage, flag){
+	if(x==y){
+		ErrorMessage = Error_25.replace(/~~1/,getDesc(fieldDescX));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,getDesc(fieldDescY)),objX, totalErrorMessage, flag));
+	}
+	return(true);
+}
+
+function chkPassword(x,fieldDesc,obj, totalErrorMessage, flag){
+	for(i=0;i<x.length;i++)
+		if(x.charCodeAt(i)==32)
+			return(setErrorMessage(Error_26.replace(/~~1/,getDesc(fieldDesc)),obj, totalErrorMessage, flag));
+	if(x.length<8){
+		ErrorMessage=Error_27.replace(/~~1/,getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,8),obj, totalErrorMessage, flag));}
+	if(!chkAlphaNumeric(x,fieldDesc,obj, totalErrorMessage, flag))
+	    return(false);
+	var temp = new Array(3);
+	for(i=0;i<x.length-2;i++)
+	{
+		temp[1] = x.charCodeAt(i);
+		temp[2] = x.charCodeAt(i+1);
+		temp[3] = x.charCodeAt(i+2);
+		if(temp[1]==temp[2] && temp[2]==temp[3])
+			return(setErrorMessage(Error_28.replace(/~~1/,getDesc(fieldDesc)),obj, totalErrorMessage, flag));
+	}
+	return(true);
+}
+
+function chkDOSI(x,fieldDesc,obj, totalErrorMessage, flag){
+	if(x.length<6){
+		ErrorMessage=Error_536.replace(/~~1/,getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,6),obj, totalErrorMessage, flag));}
+	if(!chkAlphaNumericSpecalCharsForIDV(x,fieldDesc,obj, totalErrorMessage, flag, true)) {
+		ErrorMessage=Error_536.replace(/~~1/,getDesc(fieldDesc));
+		return (setErrorMessage(ErrorMessage.replace(/~~1/,getDesc(fieldDesc)),obj, totalErrorMessage, flag));
+	}
+	return(true);
+}
+
+function chkSQAnswer(x,fieldDesc,obj, totalErrorMessage, flag){
+	if (chkNotBlank(x, fieldDesc, true, obj, totalErrorMessage, flag)) {
+		if(x.length<3){
+			ErrorMessage=Error_27.replace(/~~1/,getDesc(fieldDesc));
+			return(setErrorMessage(ErrorMessage.replace(/~~2/,3),obj, totalErrorMessage, flag));}
+		if(!chkAlphaNumericSpecalCharsForIDV(x,fieldDesc,obj, totalErrorMessage, flag, true)) {
+			ErrorMessage=Error_545.replace(/~~1/,getDesc(fieldDesc));
+			return (setErrorMessage(ErrorMessage.replace(/~~1/,getDesc(fieldDesc)),obj, totalErrorMessage, flag));
+		}
+		return(true);
+	}
+}
+
+function chkIDVUserID(x,fieldDesc,obj, totalErrorMessage, flag){
+	if(x.length<5){
+		ErrorMessage=Error_535.replace(/~~1/,getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,5),obj, totalErrorMessage, flag));}
+	if(!chkAlphaNumericSpecalCharsForIDV(x,fieldDesc,obj, totalErrorMessage, flag, false))
+	    return (setErrorMessage(Error_535.replace(/~~1/,getDesc(fieldDesc)),obj, totalErrorMessage, flag));
+	return(true);
+}
+
+function processFormResultWithoutAction(form, totalErrorMessage, submitForm, flag)
+{
+	if(totalErrorMessage.value.length > 0){
+		form.action="";
+		alertErrorMessage(totalErrorMessage, submitForm, flag);
+		return -1;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+function processFormResult(form, chgDateName, totalErrorMessage, waitFlag, validateFlag, submitForm, flag)
+{
+	if(totalErrorMessage.value.length > 0){
+		form.action="";
+		alertErrorMessage(totalErrorMessage, submitForm, flag);
+	}
+	else
+	{
+		if (waitFlag.value == true)
+			popupWait();
+		if ( validateFlag.value == 1 )
+		{
+			//chgdate(form);
+			eval(chgDateName);
+		}
+		form.submit();
+	}
+}
+
+function alertErrorMessage(totalErrorMessage, submitForm, flag)
+{
+	if(totalErrorMessage.value.length > 0)
+	{
+		Temp = totalErrorMessage.value;
+		totalErrorMessage.value = "";
+		flag.value = false;
+		submitForm.value = "yes";
+		alert(errHead + Temp + errFoot);
+	}
+}
+
+function chkFocus(x, flag)
+{
+	if(!flag.value)
+	{
+		x.focus();
+		flag.value = true;
+	}
+}
+
+function setErrorMessage(message, obj, totalErrorMessage, flag)
+{
+	totalErrorMessage.value+=message + "\n";
+
+	Value = document.URL;
+	Start = Value.lastIndexOf("/") + 1;
+	Location = Value.substring(Start, Value.length);
+
+	if (Location.indexOf("LnPnInstIn")<0&&Location.indexOf("LnTaxIn")<0&&Location.indexOf("PfCusPersonalInfoAddrIn")<0&&
+		obj.name!="OtherAccount"&&obj.name!="BillType"&&obj.name!="OrderPrice"&&
+		obj.name!="Instr_PrincipalAmt"&&obj.name!="Instr_DeductAmt"&&obj.name!="FundCode"&&
+		obj.name!="OrderPrice"&&obj.name!="OtherEducationLevel"&&obj.name!="OtherResidence"&&
+		obj.name!="MonthlyPayPercent")
+	chkFocus(obj, flag);
+	return(false);
+}
+
+function chkAlphaNumeric(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+	for(y = 0; y<x.length; y++)
+	{
+		charCode = x.charCodeAt(y);
+		if((charCode >= 48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >=97 && charCode <= 122));
+			//continue;
+		else
+			return(setErrorMessage(Error_22.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+	}
+	return(true);
+}
+
+function chkAlphaNumericHyphen(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+
+	var Err = 0;
+
+	for(y = 0; y<x.length; y++)
+	{
+		if((x.charCodeAt(y)>=48 && x.charCodeAt(y) <=57)||(x.charCodeAt(y)>=65 && x.charCodeAt(y) <=90)||(x.charCodeAt(y)>=97 && x.charCodeAt(y) <=122)||(x.charCodeAt(y) ==45))
+			continue;
+		else
+			Err = 1;
+	}
+	if(Err == 1)
+		return(setErrorMessage(Error_21.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+	return(true);
+}
+
+function chkAlphaNumericSpecalCharsForIDV(x, fieldDesc, obj, totalErrorMessage, flag, includeSpace)
+{
+
+	var Err = 0;
+
+	for(y = 0; y<x.length; y++)
+	{
+		if((x.charCodeAt(y)>=48 && x.charCodeAt(y) <=57)||(x.charCodeAt(y)>=65 && x.charCodeAt(y) <=90)||(x.charCodeAt(y)>=97 && x.charCodeAt(y) <=122)||(x.charCodeAt(y) ==45)||(x.charCodeAt(y) ==95)||(x.charCodeAt(y) ==64)||(x.charCodeAt(y) ==46)||(x.charCodeAt(y) ==39))
+			continue;
+		else {
+			if (includeSpace && (x.charCodeAt(y)==32)) {
+				continue;	
+			}
+			Err = 1;
+		}
+	}
+	if(Err == 1)
+		return (false);
+	return(true);
+}
+
+function chkLogonChar(x)
+{
+	for(y = 0; y<x.length; y++)
+	{
+		charCode = x.charCodeAt(y);
+		if((charCode >= 48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >=97 && charCode <= 122) || (charCode ==95))
+			continue;
+		else
+			return (false);
+	}
+	return(true);
+}
+
+function chkLogonID(x, fieldDesc, obj, totalErrorMessage, flag){
+	for(i=0;i<x.length;i++)
+		if(x.charCodeAt(i)==32) {
+			return(setErrorMessage(Error_22.replace(/~~1/, getDesc(fieldDesc)),obj, totalErrorMessage, flag));
+		}
+	if(!chkLogonChar(x)) {
+		return(setErrorMessage(Error_22.replace(/~~1/, getDesc(fieldDesc)),obj, totalErrorMessage, flag));
+	}
+	return true;
+}
+
+function chkMinLength(x,y,fieldDesc,obj, totalErrorMessage, flag){
+	if(x.length<y){
+		ErrorMessage=Error_27.replace(/~~1/,getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,y),obj, totalErrorMessage, flag));}
+	else
+		return true;
+}
+
+function chkMaxLength(x,y,fieldDesc,obj, totalErrorMessage, flag){
+	if(x.length>y){
+		ErrorMessage=Error_500.replace(/~~1/,getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,y),obj, totalErrorMessage, flag));}
+	else
+		return true;
+}
+function chkEqualLength(x, y, fieldDesc, obj, totalErrorMessage, flag){
+	if(x.length != y){
+		ErrorMessage=Error_44.replace(/~~1/,getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/,y),obj, totalErrorMessage, flag));}
+	else
+		return true;
+}
+
+function chkAlphabetic(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+	for(y = 0; y<x.length; y++)
+	{
+		charCode = x.charCodeAt(y);
+		if((charCode >= 65 && charCode <= 90) || (charCode >=97 && charCode <=122))
+			continue;
+		else
+			return(setErrorMessage(Error_20.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+
+		return(true);
+	}
+	return(true);
+}
+
+function chkNumeric(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+	if(chknum(x))
+		return(true);
+	else
+		return(setErrorMessage(Error_01.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+
+}
+
+function chkNotBlank(x, fieldDesc,Compulsory, obj, totalErrorMessage, flag) {
+
+	if(obj.type==null){
+		for(i=0;i<obj.length;i++){
+			if(obj[i].checked)
+			return(true);}
+		if(Compulsory){
+			totalErrorMessage.value += Error_03.replace(/~~1/, getDesc(fieldDesc)) + "\n";
+			chkFocus(obj[0], flag);
+		}
+		return(false);
+	}
+	else
+	{
+		if(obj.type == "text") x = trimString(x);
+		if(obj.type == "textarea") x = trimTextAreaString(x);
+		if(x.length==0 || (obj.type=="checkbox" && !obj.checked)){
+			if(Compulsory){
+				if(obj.type == "select-one")
+					totalErrorMessage.value += Error_23.replace(/~~1/, getDesc(fieldDesc)) + "\n";
+				else {
+					totalErrorMessage.value += Error_03.replace(/~~1/, getDesc(fieldDesc)) + "\n";
+				}
+				if (obj.name!="OtherAccount"&&obj.name!="BillType"&&obj.name!="OrderPrice"&&obj.name!="InterBankAccount"
+					&&obj.name!="u_BeneficiaryName"&&obj.name!="u_PaymentDetail"&&obj.name!="InterBankAccount"
+					&&obj.name!="InterBankAccount"&&obj.name!="SelfRentedAmount"&&obj.name!="OtherResidentialStatus"
+					&&obj.name!="MortgageRepayment"&&obj.name!="OtherRepayment"&&obj.name!="EmployeeName"
+					&&obj.name!="ATMNumber1"&&obj.name!="ATMNumber2"&&obj.name!="CardCollectionBranch"
+					&&obj.name!="Instr_PrincipalAmt"&&obj.name!="Instr_DeductAmt"&&obj.name!="FundCode"
+					&&obj.name!="OrderPrice"&&obj.name!="OtherEducationLevel"&&obj.name!="OtherResidence"
+					&&obj.name!="MonthlyPayPercent"&&obj.name!="OrderPrice")
+					chkFocus(obj, flag);
+			}
+			return(false);
+		}
+	}
+	return(true);
+}
+function chkLessThan(x, y, fieldDesc, obj, totalErrorMessage, flag)
+{
+	if(x.length > y)
+	{
+		ErrorMessage = Error_04.replace(/~~1/ , getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2./, y + 1)+ CharactersMsg, obj, totalErrorMessage, flag));
+	}
+	else
+		return(true);
+}
+function chkLongerThan(x,y,fieldDesc, obj, totalErrorMessage, flag)
+{
+	if(x.length < y)
+	{
+		ErrorMessage = Error_05.replace(/~~1/ , getDesc(fieldDesc));
+		return(setErrorMessage(ErrorMessage.replace(/~~2/, y - 1), obj, totalErrorMessage, flag));
+	}
+	else
+		return(true);
+}
+
+function chknum(x){
+
+	for(y=0; y<x.length; y++)
+	{
+ 		if(x.charCodeAt(y) > 57 || x.charCodeAt(y) < 48)
+			return(false);
+	}
+	return(true);
+}
+
+function radioChecker(obj) {
+   for (var i=0; i<obj.length; i++) {
+      if (obj[i].checked) return (obj[i].value);
+   }
+   return(null);
+}
+
+function removeCookie(){
+
+	var allcookies = document.cookie;
+	var pos = allcookies.indexOf("logonifs=");
+	var lasthour = new Date();
+	lasthour.setHours(lasthour.getHours()-1);
+	if (pos != -1){
+		var test = new Date();
+		cookievalue = test.toGMTString();
+		document.cookie = "logonifs" + "=" +escape(cookievalue)+
+	        (  ";expires=" + lasthour.toGMTString()) +
+	        (  ";path=" +  "/") +
+	        (  ";domain=" + ".hsbc.com.hk") ;
+	}
+}
+
+
+function setLocation(obj, loc, waitFlag)
+{
+	if (waitFlag.value)
+	{
+		popupWait();
+	}
+	obj.href = loc;
+}
+
+function popupWait()
+{
+
+}
+
+function OpenHelp(form)
+{
+	window.open(form,'PopUp','width=400,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function helpopen(name)
+{
+	window.open(name,'HelpPage', 'width=390,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+function owin(ooo)
+{
+	window.open(ooo, '', 'menubar=no,resizable=yes,toolbar=no,location=no,directories=no,scrollbars=yes,center=yes,status=yes,width=400,height=400,screenX=150,screenY=200,top=200,left=150');
+}
+
+function OpenWindow(url)
+{
+	window.open(url, '', 'width=390,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function appendErrorMessage(Message, totalErrorMessage)
+{
+	totalErrorMessage.value+=Message + "\n";
+//	return(false);
+}
+
+function chkNonZero(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+	var tmpx=trimSeparator(x);
+	if(parseFloat(tmpx)!=parseFloat("0"))
+		return(true);
+	else{
+		return(setErrorMessage(Error_34.replace(/~~1/,getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+	}
+}
+
+
+function chkSubString(x,y,fieldDesc1,fieldDesc2,yobj, totalErrorMessage, flag)
+{
+	if(x.toUpperCase().indexOf(y.toUpperCase())!=-1)
+	return(setErrorMessage(Error_38.replace(/~~2/,getDesc(fieldDesc1)).replace(/~~1/, getDesc(fieldDesc2)),yobj, totalErrorMessage, flag));
+}
+
+function trimString(x)
+{
+	while (x.substring(0,1) == " " )
+	{	templength=x.length;
+		x = x.substring(1,templength);
+	}
+
+	while (x.substring(x.length-1,x.length) == " " )
+	{	x=x.substring(0,x.length-1)
+	}
+	return x
+}
+
+function chkAlphaSpace(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+	for(y = 0; y<x.length; y++)
+	{
+		charCode = x.charCodeAt(y);
+		if((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 32)
+			continue;
+		else
+			return(setErrorMessage(Error_39.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+
+		return(true);
+	}
+	return(true);
+}
+
+function chkAlphaNumericSpace(x, fieldDesc, obj, totalErrorMessage, flag)
+{
+	for(y = 0; y<x.length; y++)
+	{
+		charCode = x.charCodeAt(y);
+		if((charCode >= 48 && charCode <=57) || (charCode >= 65 && charCode <= 90) || (charCode >=97 && charCode <= 122) || charCode == 32);
+			//continue;
+		else
+			return(setErrorMessage(Error_40.replace(/~~1/, getDesc(fieldDesc)), obj, totalErrorMessage, flag));
+	}
+	return(true);
+}
+
+function getRadioValue(obj) {
+   // check the argument type first.
+   var objectType = Object.prototype.toString.call(obj);
+   if (objectType == "[object HTMLInputElement]") {
+      if (obj.type == "radio" && obj.checked) return obj.value;
+   }
+   if (objectType == "[object NodeList]") {
+      for (var i=0; i<obj.length; i++) {
+         if (obj[i].type == "radio" && obj[i].checked) return (obj[i].value);
+      }
+   }
+   // This cater for IE
+   if (objectType == "[object Object]") {
+   	  if (obj.length) {
+          for (var i=0; i<obj.length; i++) {
+             if (obj[i].checked) return (obj[i].value);
+          }
+   	  } else {
+   	  	  return obj.value;
+   	  }
+   }
+   return(null);
+}

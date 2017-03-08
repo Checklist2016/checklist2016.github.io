@@ -1,0 +1,1366 @@
+
+/* Default
+ * Text styles
+---------------------------------------------------------------------------------------------- */
+html body,
+body{
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666;
+}
+
+/* Form, Input, Select
+ * Layout styles
+---------------------------------------------------------------------------------------------- */
+form{
+	display:inline;
+}
+input,
+select,
+label{
+	vertical-align:middle !important;
+}
+
+/* A, A Img
+ * Text stlyes
+---------------------------------------------------------------------------------------------- */
+a img{
+	border:0px;
+}
+a{
+	color:#2E5CB8;
+	text-decoration:none;
+}
+div.containerGlobal{
+	/*width: 760px;*/
+	width:985px;
+}
+div.containerEntity{
+	width: 100%;
+	clear: both;
+}
+div.containerLogoArea{
+	width: 350px;
+	float: left;
+	clear:left;
+}
+div.hsbcDivletTabMenu
+{
+	background: url("../images/tab_bg.gif") repeat-x left bottom;
+	height:44px;
+	width:100%;
+	clear:left;
+}
+div.hsbcDivletTabMenu ul
+{
+	margin:0px;
+	padding:0px;
+}
+div.hsbcDivletTabMenu ul li
+{
+	margin:0px;
+	padding:0px 0px 0px 6px;
+	list-style:none;
+	float:left;
+	height:44px;
+	background: url("../images/tab_off_left.gif") no-repeat top left;
+	text-align:center;
+}
+div.hsbcDivletTabMenu ul li a,
+div.hsbcDivletTabMenu ul li span.extNoLink
+{
+	padding:0px 9px 0px 2px;
+	margin:0px;
+	height:44px;
+	line-height:36px;
+	float:left;
+	display:block;
+	background: url("../images/tab_off_right.gif") no-repeat top right;
+	text-decoration:none;
+	color:#000!important;
+	/* mac-ie */
+	font-size:74%;
+	/*non-mac-ie \*/
+	font-size:68%;
+	/* */
+	font-weight:normal;
+	vertical-align:50%;
+}
+div.hsbcDivletTabMenu ul li a:hover
+{
+	color:#f00 !important;
+	text-decoration:none;
+}
+div.hsbcDivletTabMenu ul li.hsbcDivletTabMenuSelected
+{
+	background: url("../images/tab_on_left.gif") no-repeat top left !important;
+}
+div.hsbcDivletTabMenu ul li.hsbcDivletTabMenuSelected a
+{
+	background: url("../images/tab_on_right.gif") no-repeat top right;
+}
+div.hsbcDivletTabMenu ul li.extFirstTab
+{
+	background: url("../images/first_tab_off_left.gif") no-repeat top left;
+	padding-left:15px;
+}
+div.hsbcDivletTabMenu ul li.extFirstTabSelected
+{
+	background: url("../images/first_tab_on_left.gif") no-repeat top left;
+	padding-left:15px;
+}
+div.hsbcDivletTabMenu ul li.extFirstTabSelected a
+{
+	background: url("../images/tab_on_right.gif") no-repeat top right;
+}
+div.hsbcDivletTabMenu ul li.extSelectedTabRight
+{
+	background: url("../images/tab_off_left_selected_right.gif") no-repeat top left;
+}
+div.hsbcDivletTabMenu ul li.extSelectedTabRight a
+{
+	background: url("../images/tab_off_right_selected_right.gif") no-repeat top right;
+}
+div.hsbcDivletTabMenu ul li.extSelectedTabLeft
+{}
+div.hsbcDivletTabMenu ul li.extSelectedTabLeft a
+{
+	background: url("../images/tab_off_right_selected_left.gif") no-repeat top right;
+}
+div.hsbcDivletTabMenu ul li.extLastTabSelected
+{
+	background:   url("../images/tab_on_left.gif") no-repeat top left;
+}
+div.hsbcDivletTabMenu ul li.extLastTabSelected a
+{
+	background:  url("../images/last_tab_on_right.gif") no-repeat top right;
+	padding-right:34px;
+}
+div.hsbcDivletTabMenu ul li.extRightAlignTab
+{
+	float:right;
+	padding-right:10px;
+}
+div.hsbcDivletTabMenu ul li.extNoTab
+{
+	background:none !important;
+}
+div.hsbcDivletTabMenu ul li.extNoTab a
+{
+	background:none !important;
+	padding:0px !important;
+	padding-right:3px !important;
+}
+div.hsbcDivletTabMenu ul li span.extNoLink
+{
+	background:none !important;
+	padding:0px !important;
+	padding-right:3px !important;
+}
+div.hsbcDivletTabMenu ul li.extRightAlignTabSelected
+{
+	background:  url("../images/first_tab_on_left.gif") no-repeat top left;
+	float:right;
+	padding-left:15px;
+	padding-right:0px;
+}
+div.hsbcDivletTabMenu ul li.extRightAlignTabSelected a
+{
+	background: url("../images/right_align_tab_on_right.gif") no-repeat top right;
+	padding-right:20px;
+	padding-left:3px;
+}
+div.hsbcDivletTabMenu ul li.extSelectedTabRightEndBlock
+{
+	background: url("../images/tab_off_left_selected_right_end_block.gif") no-repeat top left;
+}
+div.hsbcDivletTabMenu ul li a.extDoubleLine
+{
+	line-height:13px;
+	padding-top:4px;
+	/* FIX FOR:PC IE5.5 and PC IE5.01 */
+	height:44px;
+	hei\ght:40px;
+}
+div.hsbcDivletTabMenu ul li a .extMacIE
+{
+	float:left;
+	clear:left;
+	padding-top:2px;
+	/*FIX FOR:MAC IE \*/
+	float:none;
+	clear:none;
+	padding-top:0px;
+	/* */
+}
+/* ***************************************************************** */
+
+h2 a,
+h3 a{
+	text-decoration: none;
+}
+div.hsbcContent a:hover{
+	text-decoration: underline;
+}
+.rightColumn .hsbcRow .hsbcContent{
+	float:left;
+	display:inline;
+}
+div.rightColumn .hsbcContent {
+	margin-top:15px!important;
+	margin-left:16px;
+	padding:4px 4px 2px 4px !important;
+}
+
+
+/* Left column only   | |      |
+---------------------------------------------------------------------------------------------- */
+
+div.containerControlLeft div.containerContent{
+	/*width:619px;*/
+	width:791px;
+	float:left;
+	/* \*/
+	width:792px;
+	/*width:620px;*/
+	/* */
+}
+div.containerControlLeft div.containerControlOne div.hsbcColumn{
+	/*width:619px;*/
+	width:791px;
+	/* \*/
+	width:792px;
+	/*width:620px;*/
+	/* */
+}
+div.containerControlLeft div.containerControlTwo div.hsbcColumn{
+	width:380px;
+}
+div.containerControlTwo{
+	float: left;
+}
+
+/* Column, Content and Left div's
+---------------------------------------------------------------------------------------------- */
+div.hsbcColumn{
+	float:left;
+}
+div.hsbcContent{
+	margin-left:0px;
+	padding: 0px 0px 0px 16px!important;
+	width:auto;
+	float:left;
+}
+div.containerLeftNav{
+	/*width: 140px;*/
+	width:193px;
+	float:left;
+	padding-top:91px;
+	padding-bottom:20px;
+	background:url("../images/navigation_bg.gif") bottom left no-repeat;
+	background-color:#fff;
+}
+div.hsbcRow{
+	/* \*/                           
+	clear: both;
+	/* */
+}
+
+/* LOGON DIVLET
+----------------------------------------------------------------------------------------------- */
+div.hsbcDivletLogon{	
+	float: right;
+	white-space: nowrap;
+	height:2em;
+}
+div.hsbcDivletLogon p{
+	float: left;
+	font-size: 74%;
+	margin: 10px 6px 5px;
+	/* \*/
+	font-size: 69%;
+	margin: 9px 6px 4px 3px;
+	/* */
+}
+div.hsbcDivletLogon img{
+	float:left;
+	margin-right:8px;
+	margin:0px;
+	padding:0px;
+}
+/* FOOTER DIVLET
+---------------------------------------------------------------------------------------------- */
+div.hsbcDivletFooterLinks{
+	width:100%;
+	float:left;
+	margin:25px 0px 16px;
+	background-color:#eee;
+	color:#333;
+	line-height:180%;
+	padding:0px;
+}
+div.containerControlPopup div.hsbcDivletFooterLinks{
+	margin: 16px 0px 0px !important;
+}
+div.hsbcDivletFooterLinks p{
+	/* mac-ie */
+	font-size:68%;
+	/*non-mac-ie \*/
+	font-size:64%;
+	/* */
+	color:#333;
+	line-height:180%;
+	padding:0px;
+	margin:0px;
+}
+div.hsbcDivletFooterLinks p a{
+	color:#333;
+	text-decoration:none;
+}
+div.hsbcDivletFooterLinks p a:hover{
+	text-decoration:underline;
+}
+div.hsbcDivletFooterLinks p span.hsbcDivletFooterLinksLeft{
+	float:left;
+	margin-left:10px;
+}
+div.hsbcDivletFooterLinks p span.hsbcDivletFooterLinksRight{
+	float:right;
+	margin-right:10px;
+}
+
+/* LEFT NAVIGATION DIVLET
+----------------------------------------------------------------------------------------------- */
+div.hsbcDivletNavigation{
+      background-color:#fff;
+      background: none;
+      /* mac-ie */
+      font-size:74%;
+      /*non-mac-ie \*/
+      font-size:69%;
+      /* */
+}
+div.hsbcDivletNavigation ul{
+	background: #eee;
+	padding: 0px;
+	margin: 0px;
+}
+div.hsbcDivletNavigation ul li{
+	list-style: none;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 10px 11px 7px !important;
+	margin:0px;
+	font-weight: normal;
+	/*line-height: 1.6em;*/
+	color: #666;
+}
+div.hsbcDivletNavigation ul.hsbcDivletNavList{
+	background:#fff;
+}
+div.hsbcDivletNavigation ul.hsbcDivletNavList li{
+	border-top: 0px;
+}
+div.hsbcDivletNavigation ul.hsbcDivletNavList li a{
+}
+div.hsbcDivletNavigation ul.hsbcDivletNavList li a:hover{
+	color: #f00;
+}
+
+div.hsbcDivletNavigation a{
+	color: #666;
+	text-decoration: none;
+	display:block;
+	padding:0px 0px 2px 0px;
+}
+div.hsbcDivletNavigation a:hover{
+	text-decoration: underline;
+}
+
+.floatRight {
+	float:right;
+}
+
+
+/* LOGO DIVLET
+---------------------------------------------------------------------------------------------- */
+div.hsbcDivletLogo{
+	height:52px;
+	width:500px;
+}
+div.hsbcDivletLogo .hsbcDivletLogoImage{
+	padding:13px 0px 0px 10px;
+	float:left;
+	width:auto;
+}
+div.hsbcDivletLogo .hsbcDivletLogoTagLine{
+	float:left;
+	vertical-align:middle;
+	padding:18px 0px 0px 12px;
+	font:bold 14px Arial, Helvetica, sans-serif;
+	color:#f00;
+}
+
+/* SEARCH DIVLET
+---------------------------------------------------------------------------------------------- */
+div.hsbcDivletSearch{
+	float:right;
+	text-align:right;
+	/* mac-ie */
+	font-size:86%;
+	/*non-mac-ie \*/
+	font-size:82%;
+	/* */
+	margin-top:13px;
+	padding-right:6px;
+}
+
+div.hsbcDivletSearch form{
+	padding-right:16px;
+}
+
+div.hsbcDivletSearch label{
+	color:#000;
+}
+div.hsbcDivletSearch input{
+	vertical-align:middle;
+}
+div.hsbcDivletSearch a{
+	color:#000;
+	text-decoration:none;
+}
+div.hsbcDivletSearch a:hover{
+	color:#f00;
+	text-decoration:none;
+}
+
+/* Top Level Containers
+---------------------------------------------------------------------------------------------- */
+
+div.containerTabMenu{
+	width:100%;
+	float:left;
+}
+div.containerFooter{
+	width: 100%;
+	float: left;
+}
+div.containerMain{
+	width: 100%;
+	float:left;
+	background:url("../images/main_container_bg.gif") top right repeat-y;
+}
+div.containerPageInformation{
+	width: 100%;
+	float: left;
+}
+div.containerControlOne{
+	float:left;
+	width:100%;
+}
+
+/* ENTITY DIVLET
+----------------------------------------------------------------------------------------------- */
+
+div.hsbcEntity{
+	float:left;
+	background: url("../images/divlets/bgEntityTabBack.gif") repeat-x top left;
+
+	/* mac-ie */
+	font-size:68%;
+	/*non-mac-ie \*/
+	font-size:61%;
+	clear:both;
+	/* */
+	padding: 0px 7px 0px 11px ;
+	/*width: 742px;*/
+	width:967px;
+}
+div.hsbcEntity div.hsbcEntityTextArea01{
+	float:left;
+	padding: 3px 0px 0px;
+}
+div.hsbcEntity div.hsbcEntityTextArea02{
+	float:right;
+	height: 18px;
+}
+div.hsbcEntity ul{
+	display: inline;
+	padding: 0px;
+	margin: 0px;
+}
+div.hsbcEntity ul li{
+	float: left;
+	list-style: none;
+	padding: 3px 16px 0px 0px;
+	margin: 0px;
+	background: url("../images/divlets/bgEntityTabDivider.gif") no-repeat top right;
+	height: 18px;
+}
+div.hsbcEntity ul li a{
+	
+}
+div.hsbcEntity ul li a:hover{
+	color: #f00;
+	text-decoration: none;
+}
+div.hsbcEntity ul li.hsbcEntityTabSelectedLeft{
+	padding: 3px 0px 0px;
+	background: none;
+}
+div.hsbcEntity ul li.hsbcEntityTabLastTab{
+	background: none;
+	padding: 3px 13px 0px 0px;
+}
+
+div.hsbcEntity a{
+	color:#333;
+	text-decoration:none;
+}
+div.hsbcEntity a:hover{
+	color:#333;
+	text-decoration:underline;
+}
+div.hsbcEntity ul li.hsbcEntityTabSelected{
+	background: url("../images/bgEntityTabLeft.gif") no-repeat top left;
+	padding: 3px 0px 0px 14px;
+}
+div.hsbcEntity ul li.hsbcEntityTabSelected a{
+	background: url("../images/divlets/bgEntityTabSlider.gif") no-repeat top right;
+	height: 18px;
+	padding: 3px 14px 6px 0px;
+	color: #F00;
+	\margin-top: -3px;
+}
+div.hsbcEntity ul li.hsbcEntityTabSelected a:hover{
+	color:#F00;
+}
+
+
+/*Mortgage
+------------------------------------------------------------------------------------------------*/
+
+
+div.containerMain .containerControlOne .hsbcContent p{
+	font-size:125%;
+	color:#999999 !important;
+	padding:0px 0px 14px 0px;
+	margin:0px;
+	font-weight:normal;
+}
+
+.floatFix {
+	clear:both;
+}
+.containerControlOne h1{
+	font-size:186%;
+	color:#ff0000;
+	padding:26px 0px 0px 0px;
+	margin:0px;
+	font-weight:normal;	
+}
+.containerControlOne img{
+	font-size:125%;
+	color:#999999 !important;
+	margin:0px 0px 0px 0px;
+	padding:0px;
+}
+.containerControlThree .hsbcColumn .hsbcContent h2,
+.containerControlTwo .hsbcColumn .hsbcContent h2,
+.containerControlOne .hsbcColumn .hsbcContent h2{
+	font-size:125%;
+	color:#333333;
+	font-weight:normal;
+	padding:29px 0px 9px 0px!important;
+	margin:0px;	
+}
+.hsbcColumn .hsbcContent .ColumnContainer01{	
+	float:left;
+	background:url("../images/column_bg_01.gif") repeat-y top right!important;
+	padding:0px 0px 11px 0px;
+	margin:0px;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer06{	
+	padding:0px 0px 0px 0px;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07{	
+	background: url("../images/container_07_head.gif") no-repeat top left!important;
+	margin-top:20px;
+	padding-top:4px;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 h2{	
+	margin:0px;
+	padding:3px 8px!important;
+	color:#666;
+	background:#f0f0f0;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #999;
+	width:742px!important;
+	font-size:81%;
+	font-weight:bold;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 {
+	width:742px!important;	
+	margin:0px;
+	padding:3px 6px 3px 7px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 p {
+	float:left;
+	clear:none;
+	padding-left:8px!important;
+	padding-top:4px!important;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 a {
+	color:#678ED1;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 fieldset {
+	width:480px;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 label {
+	width:120px;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 input.submit {
+	margin-left:130px!important;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 .BoxStyle08 {
+	margin:0px;
+	padding:30px 0px 0px 0px;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 .BoxStyle09 {
+	margin:0px;
+	padding:2px 0px 0px 0px;
+	float:right;
+}
+
+.hsbcFontStyle01{
+	font-size:74%;
+	color:#666666;
+	padding:2px 2px 0px 0px;
+	display:block;
+	float:left;
+	width:250px;
+}
+
+.hsbcColumn .hsbcContent .ColumnContainer07 .ContentStyle02 .ContainerBanner02 {
+	float:left;
+	padding:4px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+.extBorderTop{
+	border-top:1px solid #d4d4d4 !important;
+}
+.extBorderBottom{
+	border-bottom:1px solid #d4d4d4 !important;
+}
+.hsbcColumn .ColumnContainer01 .ContentStyle01{
+	float:left;
+	padding:12px 10px 4px 0px;
+	margin:0px;
+	width:354px;
+}
+
+.hsbcColumn .ColumnContainer01 .ContentStyle02{
+	float:left;
+	padding:12px 10px 11px 0px;
+	margin:0px;
+	width:750px;
+	border-bottom:1px solid #d3d3d3;
+}
+.ColumnContainer01 .BoxStyle01 {
+	float:left;
+	padding-top:0px;
+	margin-bottom:0px;
+}
+.ColumnContainer01 .BoxStyle01 div {
+	float:right;
+	margin:0px;
+	padding:0px;
+}
+.ColumnContainer01 .BoxStyle01 h3{
+	float:left;
+	width:200px;
+	color:#fe0000;
+	font-size:74%;
+	font-weight:bold;
+	margin:0px;
+	padding:0px;
+}
+.ColumnContainer01 .BoxStyle01 img{
+	margin-left:10px;	
+}
+.ColumnContainer01 p{
+	font-size:68%;
+	color:#676767;
+	margin:0px !important;
+	padding:4px 80px 0px 0px !important;
+	clear:both;
+}
+.hsbcColumn .hsbcContent .ColumnContainer02{	
+	float:left;
+	padding-top:5px;
+	margin:0px;
+}
+.BoxStyle02{
+	float:left;
+	margin:0px;
+	padding:0px 10px 10px 0px;
+	width:354px;
+}
+.BoxStyle02 p{
+	float:left;
+	color:#656565;
+	font-size:74%;
+	font-weight:normal;
+	margin:0px;
+	padding-top:10px;
+}
+.BoxStyle02 img{
+	margin-top:10px;
+}
+.StrapBg{
+	background:url("../images/column_bg_01.gif") repeat-y top right;
+	padding:4px 10px 15px 0px;
+}
+div.containerLeftNav h2{
+	color:#333333;
+	font-size:150%;
+	font-weight:normal;
+	padding-left:10px;
+}
+.extBorderLight{
+	border-top:1px solid #e5e5e5 !important;
+}
+
+/*Tool
+------------------------------------------------------------------------------------------------*/
+
+div.containerMain01{
+	width: 985px;
+	float:left;
+}
+div.containerMain01 .containerControlOne .hsbcContent p{
+	font-size:150%;
+	color:#999999 !important;
+	padding:0px 0px 22px 0px;
+	margin:0px;
+	font-weight:normal;
+}
+
+div.containerControlOne .hsbcContent .ContainerBanner01{
+	float:left;
+	width:619px;
+	background:url("../images/banner_insurance_matter.jpg") top left no-repeat;
+	padding:21px 16px 0px 318px;
+	margin-bottom:0px;
+}
+
+div.containerControlOne .hsbcContent .ContainerBanner02{
+	padding:0px 8px;
+	margin:0px;
+	display:inline;
+}
+
+div.containerControlOne .hsbcContent .ContainerBanner01 h2{
+	font-size:186%;
+	color:#333333;
+	font-weight:normal;
+	padding-bottom:6px;
+	margin:0px;
+}
+div.containerControlOne .hsbcContent .ContainerBanner01 p{
+	font-size:111% !important;
+	color:#666666 !important;
+	padding-bottom:20px !important;
+	font-weight:normal;
+	margin:0px;
+}
+
+div.containerControlOne .hsbcContent .ContainerBanner01 p.buttons{
+	padding:0px;
+	margin:0px;
+}
+
+div.containerControlOne .hsbcContent .ContainerBanner01 a{
+	margin:0px 10px 0px 0px;
+	padding:0px;
+}
+
+div.containerControlOne .hsbcContent .ContainerBanner01 a img{
+	margin:0px;
+	padding:0px;
+}
+div.containerControlThree .hsbcContent .ColumnWrapper01,
+div.containerControlTwo .hsbcContent .ColumnWrapper01{	
+	float:left;
+	width:953px;
+	padding:0px;
+	margin-right:0px;
+}
+div.containerControlThree .hsbcContent .ColumnContainer03,
+div.containerControlTwo .hsbcContent .ColumnContainer03{	
+	float:left;
+	background:url("../images/column_bg_02.gif") repeat-y top left !important;
+	padding:0px;
+	margin:23px 0px 0px 0px;
+	width:452px;
+	border-top:1px solid #d4d4d4 !important;
+	border-bottom:1px solid #d4d4d4 !important;
+	display:inline;
+}
+.BoxStyle03{
+	float:left;
+	width:452px;
+	padding:0px;
+	margin-bottom:12px;
+}
+.BoxStyle03 h3{
+	float:left;
+	font-size:150%;
+	color:#333333;
+	font-weight:normal;
+	padding:15px 234px 15px 0px;
+	margin:0px;
+}
+div.containerControlThree .hsbcContent .ColumnContainer03 p,
+div.containerControlTwo .hsbcContent .ColumnContainer03 p{
+	font-size:87%;
+	color:#666666;
+	padding:0px 8px 16px 11px !important;
+	margin:0px;
+	clear:left;
+}
+div.containerControlThree .hsbcContent .ColumnContainer03 a img,
+div.containerControlTwo .hsbcContent .ColumnContainer03 a img{	
+	float:right;
+	padding-right:10px;
+	margin-bottom:15px;
+}
+.extMarginLeft {
+	margin-left:48px !important;
+}
+
+
+/*Logon
+------------------------------------------------------------------------------------------------*/
+
+
+div.containerMain02{
+	width: 100%;
+	float:left;
+	padding-right:3px;
+	background:url("../images/main_container_bg.gif") top left repeat-y;
+}
+div.containerLeftNav01{
+	/*width: 140px;*/
+	width:193px;
+	float:left;
+	padding:32px 0px 20px 0px;
+	margin-bottom:40px;
+	background:url("../images/navigation_bg.gif") bottom left no-repeat;
+	background-color:#fff;
+}
+div.containerMain02 .containerControlOne h1{
+	font-size:150%;
+	color:#ff0000;
+	padding:26px 0px 0px 0px;
+	margin:0px;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+div.containerMain02 .hsbcColumn .ColumnContainer01 .ContentStyle01{
+	float:left;
+	padding:12px 8px 4px 0px;
+	margin:0px;
+	width:340px;
+}
+div.containerMain02 .hsbcColumn .ColumnContainer02 .ContentStyle01{
+	float:left;
+	padding:0px 8px 14px 0px;
+	margin:0px;
+	width:340px;
+}
+div.containerMain02 .hsbcColumn .ColumnContainer02 .ContentStyle01 p{
+	float:left;
+	color:#656565;
+	font-size:74%;
+	font-weight:normal;
+	margin:0px;
+	padding:8px 0px 0px 0px;
+}
+.extStyle15{
+	padding: 5px 0px 0px 0px!important;
+	margin:0px;
+}
+div.extStyle01{
+	padding: 0px 0px 0px 32px!important;
+	margin:0px;
+}
+div.extStyle01a{
+	padding: 0px 0px 0px 10px!important;
+	margin:0px;
+}
+div.extStyle02{
+	padding: 0px 0px 0px 48px!important;
+	margin:0px;
+}
+div.ContentStyle01 p.extStyle10{
+	font-size:74%;
+	padding:0px 0px 30px 0px!important;
+	margin:0px;
+}
+div.ContentStyle01 h3{
+	font-size:74%;
+	padding:0px 0px 10px 0px!important;
+	margin:0px;
+	color:#FE0002;
+}
+div.BoxStyle01 form label{
+	font-size:74%;
+	color:#666666;
+	padding:0px 20px 0px 0px;
+}
+div.BoxStyle01 p.extStyle11{
+	font-size:74%;
+	padding:10px 0px 0px 95px !important;
+}
+.extStyle12{
+	padding-top:0px !important;
+}
+div.containerControlOne p{
+	font-size:68%;
+	color:#999999;
+	padding-top:20px;
+	margin:0px;
+}
+.extStyle13{
+	margin-bottom:20px !important;
+	padding:0px;
+}
+.extStyle14{
+	padding:60px 0px 0px 0px !important;
+	margin-bottom:0px;
+}
+
+/*LogOff
+------------------------------------------------------------------------------------------------*/
+
+
+div.containerMain01 .hsbcColumn .hsbcContent h4{
+	font-size:125%;
+	color:#ff0000;
+	padding:15px 0px 1px 0px;
+	font-weight:normal;
+	margin:0px;
+}
+div.containerMain01 .containerControlOne .hsbcContent p.StripText01{
+	font-size:125%;
+	color:#999999 !important;
+	padding-bottom:11px;
+	margin:0px;
+	font-weight:normal;
+}
+.extStyle03{
+	width:744px !important;
+	margin:0px;
+}
+div.containerControlOne .hsbcColumn p.StripText{
+	color:#666666;
+	font-size:87%;
+	padding:17px 0px 14px 0px;
+	margin:0px;
+}
+.extStyle04{
+	padding-bottom:16px !important;
+	margin:0px;
+}
+.extStyle05{
+	width:744px;
+	margin-top:20px;
+	padding-bottom:20px;
+}
+
+
+/*Insurance Landing
+------------------------------------------------------------------------------------------------*/
+
+
+.ColumnContainer01 .ContentStyle01 p.StripText02{
+	font-size:87%;
+	color:#333333;
+	font-weight:bold;
+}
+.extStyle06{
+	margin:0px;
+	padding:16px 10px 11px 0px !important;
+}
+
+
+/*Loan Landing
+------------------------------------------------------------------------------------------------*/
+
+
+.ColumnContainer01 .ContentStyle01 .BoxStyle01 h3.StripText03{
+	float:left;
+	width:250px;
+	color:#fe0000;
+	font-size:74%;
+	font-weight:bold;
+	margin:0px;
+	padding:0px;
+}
+.extStyle07{
+	margin:0px;
+	padding:10px 0px 20px 0px;
+}
+.extStyle08{
+	margin:0px;
+	padding:1px 0px 6px 0px;
+}
+.extStyle09{
+	padding-top:5px;
+}  
+
+/*Tab*/
+/*----------------------------------------------------------------------------------------------*/
+
+div.hsbcStyleContent16{
+	height:25px;
+	width:100%;
+	clear:left;
+	padding-top:15px;
+}
+div.hsbcStyleContent16 ul{
+	margin:0px;
+	padding:0px;
+	text-transform:uppercase;
+}
+div.hsbcStyleContent16 ul li{
+	margin:0px 4px 0px 0px;
+	padding:0px 0px 0px 3px;
+	list-style:none;
+	float:left;
+	height:25px;
+	background:url("../images/table_tab_off_left.gif") no-repeat top left;
+	text-align:center;
+}
+div.hsbcStyleContent16 ul li a{
+	padding:0px 17px 0px 17px;
+	margin:0px;
+	height:25px;
+	line-height:25px;
+	float:left;
+	display:block;
+	background:url("../images/table_tab_off_right.gif") no-repeat top right;
+	text-decoration:none;
+	color:#A7AB90;
+	font-weight:bold;
+	vertical-align:50%;
+}
+div > .hsbcStyleContent16 ul li a{
+	line-height:28px;
+}
+div.hsbcStyleContent16 ul li a{
+	font-size:74%;
+	color:#6F7454;
+}
+div.hsbcStyleContent16 ul li.extSelected{
+	background-image:url("../images/table_tab_on_left.gif");
+}
+div.hsbcStyleContent16 ul li.extSelected a{
+	color:#6F7454;
+	background-image:url("../images/table_tab_on_right.gif");
+}
+div.hsbcStyleContent18{
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+div.hsbcStyleContent18 td{
+	border-right: 0 !important;
+}
+
+div.hsbcStyleContent18 td.extLastItem{
+	border-bottom: 0 !important;
+}
+table.hsbcTableStyle02{
+	border-top:1px solid #ccc;
+	width:100%;
+}
+table.hsbcTableStyle02 td{
+	font-size:68%;
+	padding-left:5px;
+}
+
+
+/*-----------------------------------Tab-------------------------------------------------------*/
+
+
+
+/*Invest Tool
+------------------------------------------------------------------------------------------------*/
+
+
+div.ColumnContainer03 .hsbcListStyle01{
+	float:left;
+	width:206px;
+	padding-left:10px;
+	margin-right:18px;
+}
+div.ColumnContainer03 .hsbcListStyle02 h4,
+div.ColumnContainer03 .hsbcListStyle01 h4{
+	font-size:87% !important;
+	color:#333333 !important;
+	padding:10px 0px 0px 0px !important;
+	margin:0px;
+	font-weight:bold !important;
+}
+div.ColumnContainer03 .hsbcListStyle02 ul,
+div.ColumnContainer03 .hsbcListStyle01 ul{
+	padding:0px 0px 15px 0px;
+	margin:0px;
+	list-style:none;
+}
+div.ColumnContainer03 .hsbcListStyle02 ul li,
+div.ColumnContainer03 .hsbcListStyle01 ul li{
+	padding:10px 0px 0px 0px;
+	margin:0px;	
+}
+div.ColumnContainer03 .hsbcListStyle02 ul li a{
+	text-decoration:underline;
+	font-size:74%;
+	color:#656565;
+}
+div.ColumnContainer03 .hsbcListStyle02{
+	float:left;
+	width:208px;
+	padding-left:10px;
+	margin:0px;
+}
+div.ColumnContainer03 .hsbcListStyle01 ul li a{
+	font-size:74%;
+	color:#fe0000;
+	font-weight:bold;	
+}
+div.ColumnContainer03 .hsbcListStyle01 ul li a hover{
+	text-decoration:underline;
+}
+
+
+/*Credit Card*/
+/*----------------------------------------------------------------------------------------------*/
+
+.BoxStyle04{
+	width:174px;
+	position:absolute;
+	left:810px;
+	top:115px;
+	padding:0px 0px 0px 0px;
+	margin:0px!important;
+}
+.BoxStyle04 img{
+	padding-left:10px;
+	margin:0px!important;
+}
+
+
+/*eIPO Centre*/
+/*----------------------------------------------------------------------------------------------*/
+
+.extStyle16{
+	padding: 0px 0px 8px 0px!important;
+	margin:0px;
+}
+.BoxStyle05{
+	float:left;
+	width:452px;
+	padding:0px;
+}
+.BoxStyle05 h3{
+	float:left;
+	font-size:150%;
+	color:#333333;
+	font-weight:normal;
+	padding:25px 200px 25px 0px;
+	margin:0px;
+}
+.containerControlThree .ColumnContainer04{
+	width:452px;	
+	float:left;
+	margin-top:17px;
+	padding:0px;
+	border-top:1px solid #d4d4d4 !important;
+	border-left:1px solid #d4d4d4 !important;
+	border-right:1px solid #d4d4d4 !important;
+}
+.ColumnContainer04 .BoxStyle06{
+	width:452px;	
+	float:left;
+	margin:0px;
+	padding:0px;
+}
+.ColumnContainer04 .BoxStyle06 h5{
+	color: #333333;
+	font-size:74%;
+	font-weight:bold;
+	padding:6px 0px 6px 5px;
+	margin:0px;
+}
+.extStyle18{
+	background :url("../images/pink_bg.gif") repeat-x top left !important;
+}
+.extStyle19{
+	background :url("../images/grey_bg_sm.gif") repeat-x top left !important;
+}
+.ColumnContainer04 .BoxStyle06 p{
+	float:right;
+	color: #666666;
+	font-size:68%;
+	padding:6px 10px 6px 10px;
+	margin:0px;
+}
+.ColumnContainer04 .BoxStyle06 p a:hover,
+.ColumnContainer04 .BoxStyle06 p a{
+	color: #666666;
+	text-decoration:underline;
+}
+.extStyle17{
+}
+.ColumnContainer04 .BoxStyle06 table{
+	width:100%;
+	color:#666666;
+	font-size:68%;
+	font-weight:normal;
+	text-align:left;
+	border-collapse:collapse;
+}
+.ColumnContainer04 .BoxStyle06 table tr{
+	margin:0px;
+	padding:0px;
+	background :url("../images/table_row_bg.gif") repeat-x top left !important;
+}
+.ColumnContainer04 .BoxStyle06 th{
+	padding:8px 5px 9px 5px;
+	margin:0px;
+	background : #f6f6f6 url("../images/table_border.gif") repeat-x bottom left !important;
+}
+.ColumnContainer04 .BoxStyle06 td{
+	padding:10px 5px 10px 5px !important;
+	margin:0px;
+}
+
+.BoxStyle07 {
+	float:left;
+	clear:both;
+	margin:0px;
+	padding:16px 0px 0px 0px;
+}
+
+.BoxStyle07 form fieldset{
+	float:left;
+	clear:left;
+	border:0px;
+	margin:0px;
+	padding:0px 0px 10px 0px;
+}
+
+.BoxStyle07 form .fieldset{
+	float:left;
+	clear:left;
+	border:0px;
+	margin:0px;
+	padding:0px 0px 10px 0px;
+}
+
+.BoxStyle07 form label{
+	font-size:74%;
+	color:#666666;
+	padding:2px 10px 0px 0px;
+	width:106px;
+	display:block;
+	float:left;
+}
+
+.BoxStyle07 form input{
+	float:left;
+}
+
+.BoxStyle07 form input.submit{
+	float:left;
+	margin:0px 0px 0px 116px !important;
+	padding:0px;
+}
+
+.BoxStyle07 p.extStyle11{
+	float:left;
+	font-size:74%;
+	padding:0px 0px 0px 116px !important;
+	white-space:nowrap;
+}
+
+.BoxStyle08 {
+	float:right;
+	margin:0px;
+	padding:42px 0px 0px 20px;
+}
+
+.extMarginLeft01{
+	margin-left:32px !important;
+}
+.containerControlThree .ColumnContainer05{
+	width:454px;	
+	float:left;
+	margin:0px;
+	padding:0px;
+}
+.containerControlThree .ColumnContainer05 img{
+	float:right;
+	margin-top:20px;
+	margin-left:10px;
+}
+div.containerControlThree .hsbcContent .ColumnWrapper01{	
+	float:left;
+	width:452px;
+	padding:0px;
+	margin-:0px;
+}
+
+/*----------------------------------------------------------------------------------------------*/
+
+.extStyle11{
+	float:left;
+	font-size:74%;
+	padding:10px 0px 0px 10px !important;
+	white-space:nowrap;
+}
+
+div.hsbcSpacing02
+{
+	margin-bottom:16px;
+	width: auto;
+}
+.submitButton{
+	float:left;
+	margin:0px 0px 0px 130px !important;
+	padding:0px;
+}
+
+.submitButton01{
+	float:left;
+	padding:0px 0px 0px 230px;
+}

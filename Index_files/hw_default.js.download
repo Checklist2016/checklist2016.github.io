@@ -1,0 +1,302 @@
+/* Global JavaScript file to be included in all pages
+ *------------------------------------------------------*/
+ 
+ 
+var jsvInputTextArray = new Array();
+var jsvWebsiteWidth = 1003;
+var jsvDropdownOuputArray = new Array();
+
+/*
+function jsfTriggerDropdownOutput()
+{
+	//get every select element within the document
+	var selectMenus = document.getElementsByTagName("select");
+	
+	//add all the IDs to the jsvDropdownOuputArray, with the corresponding hide/show
+	for( var i=0; i<selectMenus.length; i++ )
+	{
+		jsvDropdownOuputArray[selectMenus[i].id] = selectMenus[i].id+"HideShow01,"+selectMenus[i].id+"HideShow02";
+		var objReference = document.getElementById( new String( selectMenus[i].id ) );
+		if( objReference != null )
+		{			
+			objReference.onchange = jsfOutputDropdownText;
+		}
+	}
+}
+*/
+/*
+function jsfOutputDropdownText()
+{
+	//giving you two elements e.g. labelIdBillMerchantHideShow01, labelIdBillMerchantHideShow02
+	var hideShowArray = jsvDropdownOuputArray[this.id].split(",");
+	
+	if((objReference = document.getElementById(this.id))==null)
+	{
+		return;
+	}
+	
+	if(objReference.selectedIndex==0)
+	{
+		for(i=0;i<hideShowArray.length;i++)
+		{
+			if(document.getElementById(hideShowArray[i]))
+			{
+				document.getElementById(hideShowArray[i]).style.display = "none";
+			}
+		}
+		return;
+	}
+	//effectively else
+	for(i=0;i<hideShowArray.length;i++)
+	{
+		if(document.getElementById(hideShowArray[i]))
+		{
+			document.getElementById(hideShowArray[i]).style.display = "block";
+		}
+	}
+	if(document.getElementById(this.id+"Output"))
+	{
+		document.getElementById(this.id+"Output").innerHTML = objReference.options[objReference.selectedIndex].innerHTML;
+	}
+}
+*/
+function jsfTriggerInputFieldText(objId)
+{
+	if((objReference = document.getElementById(objId))==null)
+	{
+		return;
+	}
+	
+	jsvInputTextArray[objId] = objReference.value;
+	
+	objReference.onfocus = jsfInputFieldClear;
+	objReference.onblur =  jsfInputFieldFill;
+	// fixes NS_ERROR_XPC_JS_THREW_STRING bug
+	// http://tinyurl.com/7ud3b
+	objReference.setAttribute("autocomplete","off");
+}
+
+function jsfInputFieldClear()
+{
+	if((objReference = document.getElementById(this.id))==null)
+	{
+		return;
+	}
+	if(objReference.getAttribute("value")==jsvInputTextArray[objReference.id])
+	{
+		objReference.setAttribute("value","");
+	}
+}
+
+function jsfInputFieldFill()
+{
+	if((objReference = document.getElementById(this.id))==null)
+	{
+		return;
+	}
+	if(objReference.getAttribute("value")=="")
+	{
+		objReference.setAttribute("value",jsvInputTextArray[objReference.id]);
+	}
+}
+
+function jsfTriggerShowHideBalance()
+{
+	if((objShowHideTable = document.getElementById("jsIdBalanceHideShow"))==null)
+	{
+		return;
+	}
+	if((objShowButton = document.getElementById("jsIdBalanceShowButton"))==null)
+	{
+		return;
+	}
+	if((objHideButton = document.getElementById("jsIdBalanceHideButton"))==null)
+	{
+		return;
+	}
+	
+	objShowHideTable.style.display = "none";
+	objShowButton.style.display = "block";
+	objShowButton.onclick = jsfShowHideBalance;
+	objHideButton.onclick = jsfShowHideBalance;
+}
+
+function jsfShowHideBalance()
+{
+	if((objShowHideTable = document.getElementById("jsIdBalanceHideShow"))==null)
+	{
+		return;
+	}
+	if((objShowButton = document.getElementById("jsIdBalanceShowButton"))==null)
+	{
+		return;
+	}
+	if((objHideButton = document.getElementById("jsIdBalanceHideButton"))==null)
+	{
+		return;
+	}
+	
+	if(objShowHideTable.style.display == "block")
+	{
+		objShowHideTable.style.display = "none";
+		objShowButton.style.display = "block";
+		objHideButton.style.display = "none";
+	}
+	else
+	{
+		objShowHideTable.style.display = "block";
+		objShowButton.style.display = "none";
+		objHideButton.style.display = "block";
+	}
+}
+
+function jsfTriggerShowHideOtherAccounts()
+{
+	if((objShowHideTable = document.getElementById("jsIdOtherAccountsHideShow"))==null)
+	{
+		return;
+	}
+	if((objShowButton = document.getElementById("jsIdOtherAccountsShowButton"))==null)
+	{
+		return;
+	}
+	if((objHideButton = document.getElementById("jsIdOtherAccountsHideButton"))==null)
+	{
+		return;
+	}
+	objShowHideTable.style.display = "none";
+	objShowButton.style.display = "block";
+	objShowButton.onclick = jsfShowHideOtherAccounts;
+	objHideButton.onclick = jsfShowHideOtherAccounts;
+}
+
+function jsfShowHideOtherAccounts()
+{
+	if((objShowHideTable = document.getElementById("jsIdOtherAccountsHideShow"))==null)
+	{
+		return;
+	}
+	if((objShowButton = document.getElementById("jsIdOtherAccountsShowButton"))==null)
+	{
+		return;
+	}
+	if((objHideButton = document.getElementById("jsIdOtherAccountsHideButton"))==null)
+	{
+		return;
+	}
+	
+	if(objShowHideTable.style.display == "block")
+	{
+		objShowHideTable.style.display = "none";
+		objShowButton.style.display = "block";
+		objHideButton.style.display = "none";
+	}
+	else
+	{
+		objShowHideTable.style.display = "block";
+		objShowButton.style.display = "none";
+		objHideButton.style.display = "block";
+	}
+}
+
+function jsfTriggerCheckLogonStatus()
+{
+	var browser = new jsfBrowserDetect();
+	var defaultWidth = browser.isFF==1?jsvWebsiteWidth+16:jsvWebsiteWidth;
+	var minimumPadding = 8;
+	var jsvExtendLogon = 0;
+	if((objLogonStatus = document.getElementById("jsIdLogonStatus"))==null)
+	{
+		return;
+	}
+	
+	if( typeof( window.innerWidth ) == 'number' )
+	{
+		//Non-IE
+		myWidth = window.innerWidth;
+	}
+	else if(document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) )
+	{
+		//IE 6+ in 'standards compliant mode'
+		myWidth = document.documentElement.clientWidth;
+	}
+	else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) )
+	{
+		//IE 4 compatible
+		myWidth = document.body.clientWidth;
+	}
+
+	if((myWidth-defaultWidth)<0)
+	{
+		jsvExtendLogon = defaultWidth-myWidth+minimumPadding;
+		objLogonStatus.style.paddingRight = jsvExtendLogon+"px";
+	}
+	else
+	{
+		objLogonStatus.style.paddingRight = minimumPadding+"px";
+	}
+}
+
+function jsfBrowserDetect()
+{
+	var ua = navigator.userAgent.toLowerCase(); 
+	this.isIE501 = (ua.indexOf('msie 5.01') != -1);
+	this.isFF = (ua.indexOf('firefox')!= -1);
+}
+
+
+function jsfPopWin(e)
+{
+	if (!e) var e = window.event;
+	var a = e.target ? e.target : e.srcElement;
+	var newwin = window.open(a.href);
+	return !newwin;                               
+}
+
+function jsfTriggerPopLinks()
+{
+	var links = document.getElementsByTagName('a');
+	for (var i = links.length; i != 0; i--)
+	{
+		var a = links[i-1];
+		if (!a.href) continue;
+		if (a.className && a.className.indexOf('extExternalLink') != -1) a.onclick = jsfPopWin;
+	}
+}
+ 
+function jsfOnLoad()
+{
+	var browser = new jsfBrowserDetect();
+	if(browser.isIE501)
+	{
+		return;
+	}
+	jsfTriggerShowHideBalance();
+	jsfTriggerShowHideOtherAccounts();
+	jsfTriggerInputFieldText("labelIdAmount");
+	//jsfTriggerInputFieldText("jsIdStockCode");
+	jsfTriggerInputFieldText("labelBuyOrderStockCode");
+	jsfTriggerCheckLogonStatus();
+	jsfTriggerPopLinks();
+	
+	window.onresize = jsfTriggerCheckLogonStatus;
+}
+
+if (window.addEventListener)
+{
+	window.addEventListener("load", jsfOnLoad, false);
+}
+else
+{
+	if (window.attachEvent)
+	{
+		window.attachEvent("onload", jsfOnLoad);
+	}
+	else
+	{
+	if (document.getElementById)
+		{
+			window.onload = jsfOnLoad;
+		}
+	}
+}

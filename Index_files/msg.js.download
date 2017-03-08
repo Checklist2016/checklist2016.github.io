@@ -1,0 +1,347 @@
+﻿var Error_01 = "~~1 should be numeric. Please re-enter.";
+var Error_02 = "~~1 should be greater than ~~2. Please re-enter.";
+var Error_03 = "~~1 should not be blank. Please enter.";
+var Error_04 = "~~1 should be less than ~~2. Please re-enter.";
+var Error_05 = "~~1 should be longer than ~~2 characters. Please re-enter.";
+var Error_06 = "~~1 is not a valid date. The format should be DD MMM YYYY, eg 10 Aug 2000. Please re-enter.";
+var Error_07 = "~~1 should not be a future date. Please specify again.";
+var Error_08 = "~~1 should not be earlier than today. Please specify again.";
+var Error_09 = "~~1 should not be earlier than ~~2. Please specify again.";
+var Error_10 = "~~1 and ~~2 must both be inputted. Please specify again.";
+var Error_11 = "~~1 and ~~2 must both be empty. Please specify again.";
+var Error_12 = "~~1 contains invalid character. Please re-enter.";
+var Error_13 = "~~1 should not be greater than ~~2. Please re-enter.";
+var Error_14 = "~~1 should not be smaller than ~~2. Please re-enter.";
+var Error_15 = "~~1 is an invalid number. Please re-enter.";
+var Error_16 = "~~1 is an invalid number. Please re-enter.";
+var Error_17 = "~~1 should not less than zero. Please re-enter.";
+var Error_18 = "~~1 should be positive. Please re-enter.";
+var Error_19 = "~~1 has incorrect numeric separator. Please re-enter.";
+var Error_20 = "~~1 should be alphabetic. Please re-enter.";
+var Error_21 = "~~1 is not a valid account. Please specify again.";
+var Error_22 = "~~1 should be alphanumeric (i.e 0-9, A-Z, omitting '-', ','). Please re-enter.";
+var Error_23 = "Please select ~~1.";
+var Error_24 = "~~1 has not been changed.";
+var Error_25 = "~~1 should not be equal to ~~2. Please specify again.";
+var Error_26 = "~~1 must not have any blank space. Please specify the value.";
+var Error_27 = "~~1 must have at least ~~2 characters. Please re-enter.";
+var Error_28 = "~~1 should not contain more than two successive repeats of a character or digit. Please re-enter.";
+var Error_29 = "~~1 should be equal to ~~2. Please specify again.";
+var Error_30 = "~~1 should not contain decimal point.";
+var Error_31 = "~~1 is not a valid date. The format should be DD MMM YYYY, eg 10 Aug 2000. Please re-enter.";
+var Error_32 = "~~1 is not a valid email address.  Please re-enter.";
+var Error_33 = "~~1 should be smaller than ~~2. Please re-enter.";
+var Error_34 = "~~1 cannot be zero. Please re-enter.";
+var Error_35 = "~~1 should not have more than ~~2 decimal places. Please re-enter.";
+var Error_36 = "~~1 ~~2 is not a valid date. Please re-enter.";
+var Error_37 = "~~1 should only contains numeric characters, space or hyphen. Please re-enter.";
+var Error_38 = "~~1 should not be the same as ~~2 or part of it. Please re-enter.";
+var Error_39 = "~~1 should be alphabetic or space. Please re-enter.";
+var Error_40 = "~~1 should be alphanumeric or space. Please re-enter.";
+var Error_41 = "~~1 is not a valid HKID card no. Please re-enter.";
+var Error_42 = "~~1 cannot be more than ~~2 or ~~3. Please re-enter.";
+var Error_43 = "~~1 should be of ~~2 alphanumeric characters. Please re-enter.";
+var Error_44 = "~~1 should be of ~~2 numeric characters. Please re-enter.";
+var Error_45 = "~~1 is not a valid date.  Please re-enter."
+var Error_46 = "~~1 should only contains numeric characters and space. Please re-enter.";
+var Error_101 = "~~1 should not be the same. Please re-enter.";
+var Error_102 = "Either ~~1 or ~~2 must be checked.";
+var Error_103 = "~~1 must not be entered.";
+var Error_104 = "Either ~~1 or ~~2 must be entered.";
+var Error_105 = "~~1 should be in whole figure. Please re-enter.";
+var Error_200= "No input. Please re-enter.";
+var Error_201= "Invalid input. Please re-enter.";
+var Error_202 = "Please input at almost 5 digits.";
+var Error_203 = "Invalid input. Please re-enter.";
+var Error_204 = "Number of characters must be greater than or equal to 3.";
+var Error_205 = "No space is allowed.";
+var Error_206 = "New Name is same as the existing name.  Please re-enter.";
+var Error_207 = "No leading or trailing space is allowed. Please re-enter.";
+var Error_208 = "~~1 is invalid. Please re-enter.";
+
+//Bonus Point Redemption
+var Error_292 = "Credit Card Fee Waiver Accounts should not be equal. Please specify again.";
+var Error_293 = "Points to be deducted should be smaller than Points Available. Please re-enter.";
+var Error_294 = "The total number of points you redeem does not match with the total number of points required. Please re-enter.";
+
+// PfRegisteredTransferAc
+var Error_295 = "A maximum of ~~1 HSBC Accounts in Hong Kong can be amended at any one time. Please re-enter.";
+var Error_296 = "A maximum of ~~1 Other Bank Accounts in Hong Kong can be amended at any one time. Please re-enter.";
+var Error_297 = "A maximum of ~~1 Overseas Bank Accounts can be amended at any one time. Please re-enter.";
+var Error_298 = "You have not completed any input fields. Please re-enter.";
+
+var Error_299 = "Please select the welcome gift.";
+
+var Error_300 = "You must agree and confirm the above declaration before submitting your form.";
+var Error_301 = "Day time contact telephone number should not be blank. Please re-enter.";
+var Error_302 = "Percentage of Monthly Payment should be numeric. Please re-enter.";
+var Error_303 = "Percentage of Monthly Payment should be in whole figure. Please re-enter.";
+var Error_304 = "Percentage of Monthly Payment should be between ~~1 and ~~2, Please re-enter.";
+var Error_305 = "Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_306 = "Room & Flat cannot be both entered. Please re-enter.";
+var Error_307 = "Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_308 = "Property street number should be inputted with Street name.";
+var Error_309 = "Weekly repayment schedule can not be choosen. For Reducing Balance repayemnt scheme only.";
+var Error_310 = "Residential Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_311 = "Residential Room & Flat cannot be both entered. Please re-enter.";
+var Error_312 = "Residential Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_313 = "Residential street number should be inputted with Street name.";
+var Error_314 = "Previous Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_315 = "Previous Room & Flat cannot be both entered. Please re-enter.";
+var Error_316 = "Previous Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_317 = "Previous street number should be inputted with Street name.";
+var Error_318 = "Other Employment Status should be blank.";
+var Error_319 = "Employer's Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_320 = "Employer's Room & Flat cannot be both entered. Please re-enter.";
+var Error_321 = "Employer's Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_322 = "Employer's street number should be inputted with Street name.";
+var Error_323 = "Office address should not be chosen.";
+var Error_324 = "Correspondence Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_325 = "Correspondence Room & Flat cannot be both entered. Please re-enter.";
+var Error_326 = "Correspondence Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_327 = "Correspondence street number should be inputted with Street name.";
+var Error_328 = "Office address should not be chosen.";
+var Error_329 = " should not be larger than 100%. Please re-enter.";
+var Error_330 = "The total ";
+var Error_331 = "Modifications should not be blank. Please re-enter.";
+var Error_333 = "Account/Credit Card Number should not be all blank. Please re-enter.";
+var Error_334 = "Please fill in safe deposit number, HSBC investment funds accounts, insurance policies and/or overseas accounts that you wish to update.";
+var Error_335 = "Insurance policy details should not be all blank. Please re-enter.";
+var Error_336 = "Fax No. is incomplete. Please re-enter.";
+var Error_337 = "Please select at least one account.";
+var Error_338 = "Room/Flat, Floor and Block of Residential Address should not be all blank. Please re-enter.";
+var Error_339 = "Building, Estate and Street of Residential Address should not be all blank. Please re-enter.";
+var Error_340 = "Year(s) at Present Address should not be negative. Please re-enter.";
+var Error_341 = "Month(s) at Present Address should lies between 0 and 11. Please re-enter.";
+var Error_342 = "Year(s) with Previous Employer should not be negative. Please re-enter.";
+var Error_343 = "Month(s) with Previous Employer should lies between 0 and 11. Please re-enter.";
+var Error_344 = "Years with Present Employer should not be all blank or zero. Please re-enter.";
+var Error_345 = "Year(s) with Present Employer should not be negative. Please re-enter.";
+var Error_346 = "Month(s) with Present Employer should lies between 0 and 11. Please re-enter.";
+var Error_347 = "Business Address should not be blank. Please re-enter.";
+var Error_348 = "Month(s) of Monthly Income should be positive. Please re-enter.";
+var Error_349 = "Other Income and month(s) of Other Income must both be inputted or empty. Please re-enter.";
+var Error_350 = "Month(s) of Other Income should be positive. Please re-enter.";
+var Error_351 = "Bank Name and Account Number of salary autopay account must be both inputted or empty. Please re-enter.";
+var Error_352 = "The accounts of Free ATM Facility should not be equal. Please specify again.";
+var Error_353 = "Percentage of Monthly Payment should be numeric. Please re-enter.";
+var Error_354 = "Percentage of Monthly Payment should be in whole figure. Please re-enter.";
+var Error_356 = "Account of Standing Instructions should not be None. Please re-enter.";
+var Error_357 = "Choice of statement month is missing. Please re-enter.";
+var Error_358 = "Invalid applicant title. Please re-enter.";
+var Error_359 = "Room, Flat, Floor and Block of applicant's address should not be all blank. Please re-enter.";
+var Error_360 = "Room and Flat of applicant's address should not be both entered. Please re-enter.";
+var Error_361 = "Buidling, Estate, Street No. and Street Name of applicant's address should not be all blank. Please re-enter.";
+var Error_362 = "Street Name of applicant's address should not be blank. Please re-enter.";
+var Error_363 = "Tel. no.(Home) and Tel. no.(Office) should not be both blank. Please re-enter.";
+var Error_364 = "Spouse details and/or Number of children to be covered is required for choosing Cover for family. Please re-enter.";
+var Error_365 = "Incomplete information for spouse details. Please re-enter.";
+var Error_366 = "Invalid information for spouse details. Please re-enter.";
+var Error_367 = "Declaration answer(s) should not be blank. Please re-enter.";
+var Error_368 = "Invalid information for left handed person. Please re-enter.";
+var Error_369 = "Invalid relationship between applicant and left handed person. Please re-enter.";
+var Error_370 = "Missing information for left-handed person. Please re-enter.";
+var Error_371 = "There should not be more than one husband/wife specified for insured left handed person(s). Please re-enter.";
+var Error_372 = "Left handed person's information is not required to fill in. Please re-enter.";
+var Error_373 = "You must have read and understand the Terms and Conditions of this application. Please specify it.";
+var Error_374 = "You must agree and confirm the above declarations before submit this application. Please specify it.";
+var Error_375 = "Room, Flat, Floor and Block of insured address should not be all blank. Please re-enter.";
+var Error_376 = "Room and Flat of insured address should not be both entered. Please re-enter.";
+var Error_377 = "Buidling, Estate, Street No. and Street Name of insured address should not be all blank. Please re-enter.";
+var Error_378 = "Street Name of insured address should not be blank. Please re-enter.";
+var Error_379 = "Invalid information for insured person(s). Please re-enter.";
+var Error_380 = "Only one insured person is allowed for choosing cover one child aged 12-16 travel alone. Please re-enter.";
+var Error_381 = "Invalid relationship between applicant and insured person(s). Please re-enter.";
+var Error_382 = "There should not be more than one husband/wife specified for insured person(s). Please re-enter.";
+var Error_383 = " is blank, Please re-enter";
+var Error_384 = "Prospectus for Principal Capital Management (Asia) Limited is not yet available on the Internet. Please obtain a hard copy from any HSBC branch.";
+var Error_385 = "Please note HSBC may request you to submit proof of change if there are any modifications to this field.";
+var Error_388 = "Year(s) at Previous Address should not be negative. Please re-enter.";
+var Error_389 = "Month(s) at Previous Address should lies between 0 and 11. Please re-enter.";
+var Error_390 = "Repayment period must not less than 12 months for loan amount less than HKD 6000";
+
+// for esaving
+var Error_391 = "Please select the account(s) you would like to consolidate and/or opt for 'Easy Savings' service before submitting the application.";
+var Error_392 = "Please select the account(s) that you would like to consolidate.";
+var Error_393 = "Please select one designated account to transfer the net balances.";
+var Error_394 = "Please select one designated account to transfer the net balances.";
+var Error_395 = "Please note that an account can only be selected either as the desiganted account or the account to be closed.";
+var Error_396 = "Please note that the account(s) you selected for closure cannot be opted for 'Easy Savings' service.";
+
+// for tax loan
+var Error_398 = "The minimum loan amount for each phase is HKD5,000.";
+var Error_399 = "The drawdown date for the Phase 2 loan must be at least seven days after the drawdown date of the Phase 1 loan.";
+var Error_400 = "The total of the Phase 1 and Phase 2 loans is not equal to the total loan amount requested.";
+var Error_401 = "The minimum loan amount requested is HKD5,000.";
+var Error_402 = "Your current session will automatically time-out soon. If you wish to continue, please click 'OK'.";
+
+//for TMD-- Maturity Instruction
+var Error_403 = "Please specify Maturity Instructions.";
+
+// For change name and address
+var Error_404 = "Street number should be inputted with Street name. Please re-enter.";
+var Error_405 = "Other address must be the corresponding address. Please re-enter.";
+var Error_406 = "Room/Flat/Floor/Block should be blank for Overseas Address. Please re-enter.";
+var Error_408 = "Country should not be blank. Please re-enter.";
+var Error_409 = "In compliance with securities dealing restrictions in the United States of America (USA) and Canada (CN), please note that customers changing any of their addresses on our record to USA or CN will not be able to continue to enjoy our securities and unit trust trading services.\n\nIf you are holding with the Bank an overseas securities account and/or have holdings in treasuries, bonds, bank deposits (including CDs), securities or any other investment products issued by a United States issuer, you are required to separately submit to the Bank a new form W-8BEN (Certificate of Foreign Status of Beneficial Owner for United States Tax Withholding) or such other form as required by the Bank from time to time incorporating your new address and other updated information.\n\nFor further details, please call (852) 2233 3322 (for HSBC Premier customers), (852) 2748 8333 (for HSBC Advance customers) or (852) 2233 3000 (for Other Personal Banking customers).";
+
+var Error_451 = "Please indicate whether you are a full time student, or unemployed or retired."
+var Error_452 = "Please indicate whether your domestic helper(s) is/are included in the cover."
+var Error_453 = "Please select the Destination."
+
+// for SMIP/ UTMIP
+// for SMIP only
+var Error_454 = "The initial Investment Amount must be either set at a minimum of HKD5,000 and in multiples of HKD1,000 OR left blank to show that there is no Initial Investment Amount required.";
+var Error_455 = "The minimum Monthly Investment Amount is HKD1,000 and must be in multiples of HKD1,000.";
+var Error_456 = "Sorry, the total credit card payment for Monthly Investment Amount and Initial Investment Amount should not exceed HKD5,000.";
+// for both SMIP and UTMIP
+var Error_457 = "The Card Expiry Date is invalid.  Please re-enter.";
+var Error_458 = "Please enter the Expiry Date of the selected HSBC Credit Card.";
+var Error_459 = "Sorry, the Plan Effective Date must be earlier than the Card Expiry Date of the selected credit card.  Please select other account for payment or change the Plan Effective Date.";
+// for UTMIP only
+var Error_460 = "The minimum Monthly Investment Amount is HKD1,000. Please re-enter.";
+// for PIL, RCF
+var Error_461 = "Please apply the alternative loan option. You may call us on (852) 2748 8080 regarding your loan application.";
+var Error_462 = "Loan Amount must not less than HKD 5,000";
+var Error_463 = "Credit Limit must not less than HKD 5,000";
+// Insurance
+var Error_464 = "Please select Payment Option.";
+var Error_465 = "Please select China Medical Card Option.";
+// Autosweeping
+var Error_466 = "The exchange rate you have entered is out of the available range. Please re-enter.";
+var Error_467 = "The transfer amount you have entered is below the minimum threshold of HKD1,000 or equivalent.  Please re-enter.";
+var Error_468 = "Please specify the day of the week to evaluate your instruction.";
+var Error_469 = "Please specify the day and the month upon which to evaluate your instruction.";
+var Error_470 = "Please specify the day, the month and the year upon which to evaluate your instruction.";
+var Error_471 = "The date you have entered is invalid. Please set an 'Expiry Date' later than today's date.";
+var Error_472 = "Please specify an 'Expiry Date' for your instruction.";
+var Error_473 = "Please specify 'Suspension Start Date' and 'Suspension End Date' for your instruction.";
+var Error_474 = "Input still invalid. Please re-select an ~~1.";
+var Error_475 = "The date you have entered is invalid. Please set a date later than today's date for evaluation of your instruction.";
+var Error_476 = "The date you have entered is invalid. Please set an 'Suspension Date' same as or later than today's date.";
+// change Info and Address
+var Error_478 = "Telephone number is invalid. Please re-enter.";
+var Error_479 = "Fax number is invalid. Please re-enter.";
+// Alert
+var Error_480 = "~~1 should only contains numeric characters starting with '5', '6', '8' or '9'. Please re-enter.";
+var Error_481 = "Please input either email or mobile information.";
+var Error_482 = "Please select eAlert channel(s).";
+var Error_483 = "Invalid combination of eAlerts Service Plan and Charging Account. Please re-select.";
+var Error_484 = "Please select Type of privilege.";
+// Customer Level Limit
+var Error_485 = "Your requested ~~1 exceeds your current limit.  Please re-enter.  To increase the limit, please complete a request form and return it to us.";
+var Error_486 = "The ~~1 cannot exceed the current ~~2.  Please re-enter.";
+//stop loss
+var Error_488 = "Please note that the ~~1 must be lower than or equal to the ~~2.";
+var Error_489 = "Please note the ~~1 must be higher than or equal to HK$~~2-.";
+
+// Account Opening
+var Error_490 = "Residential Address Line cannot be all blank. Please re-enter.";
+var Error_493 = "Office Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_494 = "Office Room & Flat cannot be both entered. Please re-enter.";
+var Error_495 = "Office Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_496 = "Office street number should be input with Street name.";
+var Error_497 = "Office Address Line cannot be all blank. Please re-enter.";
+var Error_498 = "Office Country Line should not be input with District. Please re-enter.";
+var Error_499 = "Office Country Line should be blank for Hong Kong Country. Please re-enter.";
+//exceed max length
+var Error_500 = "~~1 must have at most ~~2 characters. Please re-enter.";
+var Error_501 = "Correspondence Room & Flat cannot be both entered. Please re-enter.";
+var Error_502 = "Correspondence Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_503 = "Correspondence street number should be input with Street name.";
+var Error_504 = "Correspondence Address Line cannot be all blank. Please re-enter.";
+var Error_505 = "Correspondence Country Line should not be input with District. Please re-enter.";
+var Error_506 = "Correspondence Country Line should be blank for Hong Kong Country. Please re-enter.";
+var Error_507 = "Please select None or other product types in Investment Experience.";
+var Error_508 = "If you wish to add a third account on your ATM card, please click 'Yes'. Otherwise, it is not necessary to select an account.";
+var Error_509 = "Correspondence Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_510 = "~~1 should be later than ~~2. Please re-enter.";
+var Error_511 = "Before submitting the form, please read point 1 under Declarations and confirm with us that you have read and understand the relevant charges that apply to this account.";
+
+// PIB12 - Autosweeping FX/UT OD Limit
+var Error_512 = "To use your overdraft facility in executing this instruction, the fund retention period must be 1 business day only.  Please re-enter.";
+var Error_513 = "To use your overdraft facility in executing this instruction, the debit account minimum balance must be 0.  Please re-enter.";
+
+// PIB13 - Change Personal Information
+var Error_514 = "There are no entries for Address fields, please re-enter.";
+var Error_515 = "Please first enter Tel No. 1.";
+// PIB14 - CreditCard
+var Error_516 = "Years with Present Address should not be all blank or zero. Please re-enter.";
+
+// PIB14 - Revolving PIL
+var Error_517 = 'Now, you can redraw the loan at a minimum of HKD3,000 up to the maximum of amount which we provided to you before. Please select "OK" to re-enter.';
+
+// PIB14 - EasyCover
+var Error_518 = 'Please select "I agree" if you accept all the Declarations, otherwise we cannot proceed with your online application.';
+var Error_519 = 'Please select "Yes" if you accept the Declaration, Terms and Conditions, and the Terms of Cover, otherwise we cannot proceed with your online application.';
+var Error_520 = "Please select Plan Option.";
+var Error_521 = "The credit card you provided has expired.";
+
+// PIB15 - ELI
+var Error_522 = "Your order will not be executed. Are you sure you want to exit?";
+var Error_523 = "Please select all the Declarations if you accept.";
+var Error_524 = "The Investment Amount/Trade Amount option must be selected.";
+
+//PIB 16 - Insurance
+var Error_525 = 'Please select "Yes" if you accept the Declaration, Terms and Conditions, and the Summary of Cover; otherwise,  we cannot proceed with your online application.';
+var Error_526 = 'Plan A is not applicable to gross floor area over 701 sq. ft.';
+var Error_527 = 'Please select "Yes" if you accept the Declaration, Terms and Conditions, and the Policy Wording; otherwise,  we cannot proceed with your online application.';
+var Error_528 = 'Please select "Yes" if you accept the Declaration, Terms and Conditions, and Terms of Cover; otherwise,  we cannot proceed with your online application.';
+var Error_529 = 'You need a credit card account to apply Term Life Insurance (Refundable Premium). If you already have a credit card account, please go to "My Details" and then select "Maintain Account List" to register the account with Internet banking service.';
+
+//PIB17A - Investment
+var Error_530 = 'Your order consists of odd lots. Please note that orders consisting of odd lots require manual processing and thus the entire order takes longer to process. You may wish to place a separate standalone order for the odd lot portions. Please note fees and charges apply to every transaction.\n\nThe odd lot portions of securities orders (including Market Orders and Limit Price Orders) will be traded at the prevailing odd lot market prices which may be less favorable than the normal market prices. If you input a limit price to your pure odd lot order, the order will be processed as a market order only when the price specified is within 12 spreads of the prevailing market price.\n\nIf your order consists of both board lot and odd lot portions, the odd lot portions will be traded at the prevailing odd lot market prices after the board lot portions are fully executed.  Please refer to the Help section for full details on odd lot order and Market Order handling. You are deemed to have accepted the above when placing your order.';
+var Error_531 = 'Your order consists of odd lots. You should check the lot size of your selected stock on the left of the sell stocks page. Please note that orders consisting of odd lots require manual processing and thus the entire order takes longer to process. You may wish to place a separate standalone order for the odd lots. Please note fees and charges apply to every transaction.';
+var Error_532 = "Please note that the ~~1 must be lower than the ~~2.";
+var Error_533 = "Please note that the ~~1 must be higher than the ~~2.";
+
+//PIB17B - SID
+var Error_534 = 'The deposit amount specified is below the minimum required amount. please re-enter.';
+
+//P2G - ID&V
+var Error_535 = "~~1 should be alphanumeric (i.e A-Z, a-z, 0-9, omitting '-', ',') plus special characters (i.e @, _, -, ', ., omitting ','), and between 5 - 15 characters. Please re-enter.";
+var Error_536 = "~~1 should be alphanumeric (i.e A-Z, 0-9, omitting '-', ',') plus special characters (i.e @, _, -, ', ., space, omitting ','), and between 6 - 30 characters. Please re-enter.\n~~1 should not be \"memorable\" and/or \"answer\" and/or \"password\" and/or contain a 5 character substring of the following strings:\"1234567890\"\n\"0987654321\"\n\"qwertyuiop\"\n\"poiuytrewq\"\n\"asdfghjkl\"\n\"lkjhgfdsa\"\n\"zxcvbnm\"\n\"mnbvcxz\"";
+var Error_537 = "Passwords may only contain a maximum of 8-digits.  Please check your password, and try again.";
+
+//P2G HP ccapp
+var Error_538="Percentage of Monthly Payment should not be zero.  Please select again.";
+var Error_539="You must read and accept the Terms and Conditions etc before submitting your form.";
+var Error_540 = "Correspondence Address Building, Estate & Street cannot be all blank. Please re-enter.";
+var Error_541 = "Correspondence Address Room, Flat, Floor & Block cannot be all blank. Please re-enter.";
+var Error_542 = "Correspondence Address Room & Flat cannot be both entered. Please re-enter.";
+var Error_543 = "Correspondence Address street number should be input with Street name.";
+var Error_544 = "The accounts of Free ATM Facility should not be equal. Please specify again.";
+
+//P2G - IDV OLR
+var Error_545 = "~~1 should be alphanumeric (i.e A-Z, 0-9, omitting '-', ',') plus special characters (i.e @, _, -, ', ., space, omitting ','), and between 3 - 30 characters. Please re-enter.";
+
+//P2G - IDV OTP
+var Error_546 = "~~1 should be numbers (0-9). Please re-enter.";
+//P2G - IDV second pwd
+var Error_547 = "Your entered Password(s) is not recommended. Please re-enter.\n~~1 should be letters (A-Z, a-z), and/or numbers (0-9) and between 8-30 characters.";
+
+//P2G - IDV OTP PIN Reset
+var Error_548 = "~~1 should contain ~~2 digits. Please re-enter.";
+
+var Rowsmsg = " rows." ;
+var CharactersMsg = " characters.";
+var Logoffmsg = "Thank you for using HSBC's Internet Banking service.\n\nAre you sure you want to Logoff?";
+var errHead="Your request cannot be processed due to the following error(s):\n\n";
+var errFoot="\nPlease make the changes and submit the form again.\n";
+
+
+function getDesc(fieldDesc){
+
+        return fieldDesc;
+}
+
+// Malcolm
+var Msg_001 = "Please use the landscape printing option.";
+var Msg_003 = "Please note that once you terminate the eAlerts Service, to re-activate the service, you will need to re-register and set up your eAlerts again.";
+var Msg_004 = "You will be directed to our RewardCash e-Shop.  In doing so, and in the interests of ensuring your online security, your Internet Banking Service will log-off automatically.  Press 'OK' to continue or 'Cancel' to return to your Internet Banking session.";
+var Msg_005 = "eAlerts are available for Hong Kong- based mobile phone numbers beginning with '9', '8', '6' or '5' digits.";
+var Msg_006 = "All limits are subject to their respective maximum allowable limits.  You can only reduce your limits via Internet Banking.  To increase the limits thereafter, please complete a request form and return it to us.";
+var Msg_007 = "If you are unable to complete your application now,  please press 'OK' to save the details and complete the application at a later time.\n\nPress 'Cancel' if you want to quit.";
+
+// Paddy, Add Msg for pop up page in IvIndex (for the option buy IPO)
+var Msg_008 = "You will be directed to our eIPO center to conduct IPO related activities. In doing so, and in the interests of ensuring your online security, your Internet Banking Service will log-off automatically. Press 'OK' to continue or 'Cancel' to return to your Internet Banking session.";

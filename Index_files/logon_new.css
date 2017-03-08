@@ -1,0 +1,119 @@
+
+.ColumnContainer01 p {
+padding-right: 0px !important;
+}
+
+div.containerMain02 .containerControlTwo .hsbcColumn .hsbcContent .bgnone {
+background:none transparent scroll repeat 0% 0%!important;
+}
+
+.leftcolumn {
+width:416px !important;
+}
+
+.rightcolumn {
+width:261px !important;
+}
+
+.smalltxtlink a,
+.smalltxtlink a:hover{
+font-size:8pt;
+}
+
+.logonmode {
+float:left;
+display:inline;
+margin:20px 0 4px 0 !important;
+padding:5px 0 0 0 !important;
+width:416px !important;
+}
+
+.logonmodeselect {
+vertical-align:top;
+}
+.logonmode img {
+margin:-5px 0 0 0 !important;
+position:relative;
+}
+
+div.BoxStyle01 form label.logonusername {
+font-size:9pt !important;
+}
+.logonusername{
+padding-right:20px;
+font-size:9pt !important;
+}
+.logonusername img{
+margin-left:0px !important;
+}
+
+div.BoxStyle01 form label.logonmodelabel {
+padding-right:5px;
+font-size:9pt !important;
+}
+.logonmodelabel {
+padding-right:5px;
+font-size:9pt !important;
+margin-top:5px;
+float:left;
+display:inline;
+}
+
+.containerControlTwo .hsbcColumn .hsbcContent H2.logonh2 {
+padding-bottom:21px !important;
+width:261px;
+}
+
+input.input01{
+width:130px;
+}
+
+.extStyle20 {
+margin-left:15px !important;
+}
+.extStyle21 {
+margin-top:-84px !important;
+margin-left:286px !important;
+float:left !important;
+display:inline;
+position:relative;
+}
+div.containerMain02 .containerControlTwo .hsbcColumn .hsbcContent .extStyle22 {
+margin-left:155px !important;
+width:120px;
+white-space:nowrap;
+}
+.extStyle23 {
+vertical-align:top;
+margin: 0 2px 0 2px !important;
+font-size:9pt !important;
+}
+.extStyle24 {
+margin-top:10px;
+margin-bottom:30px !important;
+}
+.extStyle25 {
+margin-top:10px !important;
+margin-bottom:8px !important;
+}
+.extStyle26 {
+margin-bottom:6px;
+}
+.extStyle27 {
+margin-left:15px !important;
+}
+.extStyle28 {
+margin-bottom:30px !important;
+}
+div.extStyle29 {
+padding-left: 131px !important;
+}
+.extStyle30 {
+margin-bottom:20px !important;
+}
+
+
+
+
+
+

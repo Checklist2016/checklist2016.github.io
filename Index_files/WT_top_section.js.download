@@ -1,0 +1,26 @@
+(function(a,b,c,d){
+a='//tags.tiqcdn.com/utag/hsbc/hk-rbwm-ib/prod/utag.sync.js';
+if (location.host != null && (location.host.toLowerCase().indexOf('p2g.netd2') != -1 || location.host.toLowerCase().indexOf('qualityassurance') != -1) || location.host.toLowerCase().indexOf('preprod') != -1) {
+	a='//tags.tiqcdn.com/utag/hsbc/hk-rbwm-ib/qa/utag.sync.js';
+}
+b=document;c='script';d=b.createElement(c);d.src=a;
+a=b.getElementsByTagName('head')[0];a.appendChild(d);
+})();
+
+var HSBC=new Object();
+HSBC.SITE = new Object(); // SITE specific variables go into this object.  They are translated to DCSext vairables
+HSBC.PAGE = new Object(); // WT Overrides --portal variables that need to overrride WT variables go into this object
+HSBC.EXT = new Object(); //  This is a placeholder for non SITE oriented DCSext variables
+HSBC.LOG = new Object(); //  DCS overrides -- Variables in here will override DCS.* variables matching the name
+HSBC.DCS = new Object(); // This object contains HSBC.DCS.ID with the dcsid and HSBC.DCS.Doms with the comma-separated
+                         // list of domains to be considered on-site.  As it currently stands, these domains have
+                         // to be complete domain names.
+
+HSBC.SITE.tagversion = "5.0";
+HSBC.DCS.ID="abc123";
+HSBC.rewrite=0;
+
+// ------ Set custom HSBC parameters after this line -------
+
+HSBC.DCS.Doms="www.hsbc.com";
+HSBC.DCS.Doms="www.security.online-banking.hsbc.com.hk,www1.security.online-banking.hsbc.com.hk,www2.security.online-banking.hsbc.com.hk,www.ipoonline.hsbc.com.hk,www.qualityassurance.ipoonline.hsbc.com.hk,www.tools.asiapacific.hsbc.com,www.tools.hsbc.com.hk,www.banking.hsbc.com.hk,www.qualityassurance.hsbc.com.hk,www.hsbc.com.hk,www.personal.hsbc.com.hk,www.ebanking.hsbc.com.hk,www.personal.ebanking.hsbc.com.hk,www.ebank.hsbc.com.hk,www1.ebanking.hsbc.com.hk,www2.ebanking.hsbc.com.hk,www1.personal.ebanking.hsbc.com.hk,www2.personal.ebanking.hsbc.com.hk";

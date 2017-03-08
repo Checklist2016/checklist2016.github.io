@@ -1,0 +1,95 @@
+function preloadImage(){
+	
+	var imageArray = preloadImage.arguments;
+	
+	for (var i=0; i < imageArray.length; i++) {
+		var obj = new Image();	
+		obj.src = imagePath + imageArray[i];
+	}
+}
+
+function getMainLayerObj(layerContent){
+	
+	//for HP Welcome Page
+	if (layerContent == '')
+		return document;
+		
+	//for PV Welcome page
+	if (document.all) {//For I.E.
+	
+		return document.all[layerContent].document;
+		
+	}
+	else if (document.layers) {//For Netscape 4.x
+		
+		return document.layers[layerContent].document;
+		
+	}
+	else if(document){//For Netscape 7.x
+	
+		return document;
+		
+	}
+}
+
+function changeAllState(imgObj, state, prefix, layerContent, imgFormat) {
+	
+	var inv_state;
+	
+	if (state == "on") {
+		inv_state = "off";
+	} else {
+		inv_state = "on";
+	}
+	
+	//Set all images to "off" state
+	for (var i=0; i < imgNameArray.length; i++) {
+		
+		changeImages(getMainLayerObj(layerContent), imgNameArray[i], imagePath + imgNameArray[i] + "_" + inv_state + imgFormat);
+		
+	}
+	
+	//Hide all layers
+	hideAllLayers();
+	
+	//Set the image at which mouseover or mouseclick events occur to "on" state
+	changeImages(getMainLayerObj(layerContent), imgObj, imagePath + imgObj + "_" + state + imgFormat);
+	
+	//Show the layer corresponding to the image at which mouseover or mouseclick events occur
+	displayLayers(prefix + imgObj, true);
+	
+}
+
+function displayLayers(layerName, vis){
+	
+	var obj;
+	
+	if (document.all) {//For I.E.
+		obj = document.all[layerName].style;
+		obj.visibility = vis ? "visible" : "hidden";
+	}
+	else if (document.layers) {//For Netscape 4.x
+		obj = document.layers[layerName];
+		obj.visibility = vis ? "show" : "hide";
+	}
+	else if (document){//For Netscape 7.x
+		obj = document.getElementById(layerName).style;
+		obj.visibility = vis ? "visible" : "hidden";
+	}	
+}	
+
+function changeImages(layerObj,imgObj, imgPath){
+   
+   layerObj.images[imgObj].src = imgPath;
+
+}	
+
+function hideAllLayers(){
+	
+	for (var j=0; j < layerNameArray.length; j++) {
+		
+		displayLayers(layerNameArray[j], false);
+		
+	}
+
+}	

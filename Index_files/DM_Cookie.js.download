@@ -1,0 +1,75 @@
+function getURLParamCaseSensitive(strParamName){
+  var strReturn = "";
+  var strHref = window.location.href;
+  if ( strHref.indexOf("?") > -1 ){
+    var strQueryString = strHref.substr(strHref.indexOf("?"));
+    var aQueryString = strQueryString.split("&");
+    for ( var iParam = 0; iParam < aQueryString.length; iParam++ ){
+      if ( 
+				aQueryString[iParam].toLowerCase().indexOf(strParamName.toLowerCase() + "=") > -1 ){
+        var aParam = aQueryString[iParam].split("=");
+        strReturn = aParam[1];
+        break;
+      }
+    }
+  }
+  return unescape(strReturn);
+}
+
+function setDigitalMarketCookie(myCampaignid) {
+	var cookieValue;
+	if(typeof(myCampaignid)=="undefined" || myCampaignid.length==0){
+		myCampaignid=getURLParamCaseSensitive("WT.ac");
+	}
+
+if(typeof(myCampaignid)!="undefined" && myCampaignid.length!=0){
+	if(getHSBCCookie("DigitalMarket")==null){
+	    //no cookie value found
+	    cookieValue = "INTERNAL_FIRST_BANNER" + "|#|" + myCampaignid + "|#|" + "INTERNAL_LAST_BANNER" + "|#|" + myCampaignid;
+	}else{
+		//have created cookie
+		cookieValue = getHSBCCookie("DigitalMarket");
+
+	    if(cookieValue.indexOf("INTERNAL_FIRST_BANNER|#|")==-1){
+	    	//have not yet log first banner
+	        cookieValue = cookieValue + "|#|" + "INTERNAL_FIRST_BANNER" + "|#|" + myCampaignid + "|#|" + "INTERNAL_LAST_BANNER" + "|#|" + myCampaignid;
+	    }else{
+	       //change the last banner value
+	        var lastBannerIndex = cookieValue.indexOf("INTERNAL_LAST_BANNER|#|");
+
+	        var cookieValueFirstPart = cookieValue.substring(0, lastBannerIndex);
+	        var cookieValueSecondPart = cookieValue.substring(lastBannerIndex, cookieValue.length);
+				
+	        var oriLastBannerValue;
+	        var cookieArray = cookieValue.split("|#|");
+	        for(i=0; i<cookieArray.length; i=i+2){
+	        	if(cookieArray[i].indexOf("INTERNAL_LAST_BANNER")!=-1){
+	        		oriLastBannerValue = cookieArray[i+1];
+	        	}
+	        }
+	        cookieValueSecondPart = cookieValueSecondPart.replace(oriLastBannerValue, myCampaignid);
+	        	
+	        cookieValue = cookieValueFirstPart + cookieValueSecondPart;
+	    }
+	}	
+	//set the campaignid to cookie
+	hk_amh_p2g_ebank_setPublicCookie("DigitalMarket", cookieValue, "/", ".hsbc.com.hk", "-1", "");
+}
+	
+}
+
+function getDigitalMarketCookie(bannerName)
+{
+		var bannerValue=""; 
+		if(getHSBCCookie("DigitalMarket")!=null){
+	    //cookie value found
+	    cookieValue = getHSBCCookie("DigitalMarket");
+	    var cookieArray = cookieValue.split("|#|");
+	    for(i=0; i<cookieArray.length; i=i+2){
+	       if(cookieArray[i].indexOf(bannerName)!=-1){
+	        		bannerValue = cookieArray[i+1];
+	        }
+	    }
+		}	
+		return bannerValue;
+}

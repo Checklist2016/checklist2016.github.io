@@ -1,0 +1,16 @@
+function BDE_HBAP_PopupWin(link) {
+	var popWin = window.open(link); 
+	popWin.focus();		
+}
+
+function BDE_HBAP_SubscribeIPO(link) {
+	var str1 = '<html><title>online@hsbc</title><body bgcolor="#FFFFFF">';
+	var str2 = '<form autocomplete=off name=Form1 action="' + link + '" method=POST><input type=hidden name=p2gdomain value="'+ window.location.host +'"></form></body></html>';
+	var eIPOWin = window.open('', '_blank', 'width=999,height=480,menubar=yes,toolbar=yes,location=yes,scrollbars=yes,status=yes,resizable=yes');
+	eIPOWin.document.open();
+	eIPOWin.document.write(str1);
+	eIPOWin.document.writeln(str2);
+	eIPOWin.document.close();
+	eIPOWin.document.Form1.submit();
+	eIPOWin.focus();
+}

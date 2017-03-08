@@ -1,0 +1,320 @@
+var scmHideAckOnly=true;
+var miCheck="<!-- HSBC_OK -->";
+
+function popUpCCCampaign(link){
+	var ccwin= window.open(link,'PrintVersion', 'width=400,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+	ccwin.focus();
+}
+
+function openPrintVersion(url){
+	window.open(url,'PrintVersion', 'width=390,height=400,resizable=yes,menubar=yes,toolbar=yes,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openSaveVersion(url){
+	window.open(url,'SaveVersion', 'width=390,height=400,resizable=yes,menubar=yes,toolbar=yes,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openGeneralSaveVersion(url){
+	window.open(url,'SaveVersion', 'width=680,height=600,resizable=yes,menubar=yes,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openGeneralPrintVersion(url){
+	window.open(url,'PrintVersion', 'width=680,height=600,resizable=no,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openInsurancePrintVersion(url){
+	window.open(url,'ShowInsurancePrint', 'width=680,height=600,resizable=no,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openInsuranceSaveVersion(url){
+	window.open(url,'ShowInsuranceSave', 'width=680,height=600,resizable=no,menubar=yes,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openAckPrintVersion(url){
+	window.open(url,'PrintVersion', 'width=645,height=600,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openAckSaveVersion(url){
+	if (navigator["appName"].indexOf("Microsoft Internet Explorer")!=-1)
+		window.open(url,'SaveVersion', 'width=645,height=600,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+	else
+		window.open(url,'SaveVersion', 'width=645,height=600,resizable=yes,menubar=yes,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function openLimitMaintanenceForm(url){
+	window.open(url,'ShowLimitMaintanenceForm','width=680,height=600,menubar=yes,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes,resizable=yes');
+}
+
+function popUpCmcInstructions(){
+		
+	pws_hbap_popupPdf('/content/hongkong/pws_pdf/hk/personal/insur/pdf/cnamenot.pdf' ,'Insurance', 'width=390,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');		
+
+}
+function popupInsuranceCmcHospitalsList(){
+		
+	pws_hbap_popupPdf('/content/hongkong/pws_pdf/hk/personal/insur/pdf/hosplist.pdf' ,'Insurance', 'width=390,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');		
+
+}
+function popUpRepayProtectTC(link) {
+        var repayProtectTCWin = window.open(link,'ProtectTC','width=390,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+	repayProtectTCWin.opener = self.top;
+	repayProtectTCWin.focus();
+}
+function popUpRPIRepayProtectTC(link) {
+        var repayProtectTCWin = window.open(link,'ProtectTC','width=465,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+	repayProtectTCWin.opener = self.top;
+	repayProtectTCWin.focus();
+}
+function handleSecControl(sourceForm, targetForm){
+	if (sourceForm != null && targetForm != null){
+		copyFormToHiddenField(sourceForm, targetForm);
+	}
+}
+
+function copyFormToHiddenField(srcForm, trgForm){
+
+	var i;
+
+	// init target form hidden field to empty, remove it if not required.
+	for (i=0; i<srcForm.length; i++) {
+		var element = srcForm.elements[i];
+		trgForm[element.name].value = "";
+	}
+
+	for (i=0; i<srcForm.length; i++) {
+		var element = srcForm.elements[i];
+
+		switch (element.type) {
+			case "text":
+			case "textarea":
+			case "password":
+			case "hidden":
+					trgForm[element.name].value = element.value;
+				break;
+			case "radio":
+				if (element.checked)
+					trgForm[element.name].value = element.value;
+				break;
+			case "checkbox":
+				if (element.checked)
+					trgForm[element.name].value = element.value;
+				break;
+			case "select-one":
+					if (element.selectedIndex != -1)
+						trgForm[element.name].value = element.options[element.selectedIndex].value;
+				break;
+			default:
+				// ignore other form element type
+		}
+	}
+}
+
+function focusNext(from, to, len){
+	if (from.value.length==len) {
+		to.focus();
+	}
+}
+
+// IE has a bug that if the page is loading and the select box is expanded (the select box is clicked but no option has
+// been chosen), it will stimulate the onChange event of the select box.  This function is used to check if the onChange
+// event is stimulated in such condition.
+function isManualSelectOnChange(){
+
+	var result = true;
+	if(navigator.appName.indexOf("Microsoft")>=0)
+		if(document.readyState != 'complete')
+			result = false;
+
+	return result;
+}
+function popUpAd(url)
+{
+window.open(url, '', 'width=400,height=400,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');
+}
+
+function popUpPITaxLoanTermsAndConditions(){
+	
+	pws_hbap_popupPdf('/content/hongkong/pws_pdf/hk/personal/pdf/tc_pt.pdf' ,'TC', 'width=600,height=450,resizable=yes,menubar=no,toolbar=no,directories=no,location=no,scrollbars=yes,status=yes');		
+
+}
+// For IAO offline email
+function applyHPCreditCard() {
+	document.HPCCApplyForm.action = urlPrefix + 'AcAcctOpenHPCCWelcome?cmd_AcAcctOpenPortlet_hpccwelcome=';
+	document.HPCCApplyForm.submit();
+}
+
+/***************************************************************************************************************
+* Function		: printCCRPBanner(intZIndex, intLeft_PCIE, intTop_PCIE, intLeft_PCNS, intTop_PCNS, intLeft_PCNS4, intTop_PCNS4,
+						  intLeft_MacIE, intTop_MacIE, intLeft_MacNS, intTop_MacNS, intLeft_MacNS4, intTop_MacNS4)
+* Description		: Print the beginning of Layer for CCRP Banner
+* Parameter Usage
+*		intZIndex			: z-index of the Layer
+*		intLeft_PCIE		: Left position of the layer for PC IE
+*		intTop_PCIE		: Top position of the layer for PC IE
+*		intLeft_PCNS	: Left position of the layer for PC Netscape 7
+*		intTop_PCNS	: Top position of the layer for PC Netscape 7
+*		intLeft_PCNS4	: Left position of the layer for PC Netscape 4.x
+*		intTop_PCNS4	: Top position of the layer for PC Netscape 4.x
+*		intLeft_MacIE	: Left position of the layer for Mac IE
+*		intTop_MacIE	: Top position of the layer for Mac IE
+*		intLeft_MacNS	: Left position of the layer for Mac Netscape 7
+*		intTop_MacNS	: Top position of the layer for Mac Netscape 7
+*		intLeft_MacNS4: Left position of the layer for Mac Netscape 4.x
+*		intTop_MacNS4: Top position of the layer for Mac Netscape .4x
+*
+* Author		: XM Hongkong
+* Creation Date		: 2004-03-25
+* Side effect		: n/a
+* Amendment History	:
+* Date				By							Description
+* ---------	------------	--------------------------------------------------------------------------------
+***************************************************************************************************************/
+function printCCRPBanner(intZIndex,
+		intLeft_PCIE,
+		intTop_PCIE,
+		intLeft_PCNS,
+		intTop_PCNS,
+		intLeft_PCNS4,
+		intTop_PCNS4,
+		intLeft_MacIE,
+		intTop_MacIE,
+		intLeft_MacNS,
+		intTop_MacNS,
+		intLeft_MacNS4,
+		intTop_MacNS4
+	) {
+	var args
+	var intLeft = intLeft_PCIE;
+	var intTop = intTop_PCIE	;
+	var isMac = (navigator.appVersion.indexOf("Mac")!=-1);
+	var isNS = (navigator.appName=="Netscape");
+	var isNS4 = (isNS && parseInt(navigator.appVersion)==4);
+	var isNS7 = (isNS && parseInt(navigator.appVersion)==5);
+
+	if (isMac) {
+		if (isNS4) {
+			intLeft = intLeft_MacNS4;
+			intTop = intTop_MacNS4;
+		} else if (isNS7) {
+			intLeft = intLeft_MacNS;
+			intTop = intTop_MacNS;
+		} else {
+			intLeft = intLeft_MacIE;
+			intTop = intTop_MacIE;
+		}
+	} else {
+		if (isNS4) {
+			intLeft = intLeft_PCNS4
+			intTop = intTop_PCNS4
+		} else if (isNS7) {
+			intLeft = intLeft_PCNS;
+			intTop = intTop_PCNS;
+		}
+	}
+	document.write("<div id=\"banner\" style=\"position:absolute; visibility:visible; z-index:"+intZIndex+"px; LEFT:" +intLeft+ "px; TOP:" +intTop+ "px;\">");
+}
+
+
+/***************************************************************************************************************
+* Function		: switchCCRPImage(strName, strPath)
+* Description	: Switch another image according to the passed-in image
+* Parameter Usage
+*		strName	: The name of the target image
+*		strPath		: The path of the new image
+*
+* Author		: XM Hongkong
+* Creation Date		: 2004-03-29
+* Side effect		: n/a
+* Amendment History	:
+* Date				By							Description
+* ---------	------------	--------------------------------------------------------------------------------
+***************************************************************************************************************/
+function switchCCRPImage(strName, strPath) {
+	var isNS = (navigator.appName=="Netscape");
+	var isNS4 = (isNS && parseInt(navigator.appVersion)==4);
+	//if (!isNS4) document.bannerImg.src=strPath;
+	document.bannerImg.src=strPath;
+}
+
+function popupProductRiskLevelPrompt(link){
+	var url = link + '?productTypeSubType=' + productTypeSubType + '&riskPromptNeededStatus=' + riskPromptNeededStatus;
+	if (navigator.appName=="Netscape"){
+		var bw=window.open(url,'popup_2',"ScreenX=230,ScreenY=115,width=390,height=200,resizable=no,scrollbars=no,status=no");
+	}
+	else{
+		var bw=window.open(url,'popup_2',"left=230,top=115,width=390,height=200,resizable=no,scrollbars=no,status=no");
+	}
+	if (bw.opener == null){
+		bw.opener=self;
+	}
+	bw.focus();
+	submitForm.value="yes";
+}
+
+function popupExpiredRiskProfilePrompt(link, dsnParm){
+	var url = link +'?'+dsnParm;
+	if (navigator.appName=="Netscape"){
+		var bw=window.open(url,'popup_2',"ScreenX=230,ScreenY=115,width=390,height=200,resizable=no,scrollbars=no,status=no");
+	}
+	else{
+		var bw=window.open(url,'popup_2',"left=230,top=115,width=390,height=200,resizable=no,scrollbars=no,status=no");
+	}
+	if (bw.opener == null){
+		bw.opener=self;
+	}
+	bw.focus();
+	submitForm.value="yes";
+}
+
+function popupNoRiskProfilePrompt(link, dsnParm){
+	var url = link +'?'+dsnParm;
+	if (navigator.appName=="Netscape"){
+		var bw=window.open(url,'popup_2',"ScreenX=230,ScreenY=115,width=390,height=200,resizable=no,scrollbars=no,status=no");
+	}
+	else{
+		var bw=window.open(url,'popup_2',"left=230,top=115,width=390,height=200,resizable=no,scrollbars=no,status=no");
+	}
+	if (bw.opener == null){
+		bw.opener=self;
+	}
+	bw.focus();
+	submitForm.value="yes";
+}
+
+function mimenu_checkBrowser()	{
+	this.ver=navigator.appVersion
+	this.dom=document.getElementById?1:0
+	this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0;
+	this.ie4=(document.all && !this.dom)?1:0;
+	this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0;
+	this.ns4=(document.layers && !this.dom)?1:0;
+	this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5)
+	return this;
+}
+
+	// function to open a new window with specific size and location
+function mimenu_popupMIwindows(url, target, resize)	{
+	var bw=new mimenu_checkBrowser()
+	if (this.ns4 || this.ns5) {
+		var bw=window.open(url,target,"ScreenX=210,ScreenY=90,width=570,height=390,resizable=" + resize + ",scrollbars=yes,status=no");
+	} else {
+		var bw=window.open(url,target,"left=210,top=90,width=570,height=390,resizable=" + resize + ",scrollbars=yes,status=no");
+	}
+	
+	if (bw.opener == null) {
+		bw.opener=self;
+	}
+	bw.focus();
+	return;// true;
+}
+
+function scm_hideAckOnlyBanner() {
+	if (!scmHideAckOnly) {
+		var x = document.getElementsByTagName('span');
+		for (var i=0;i<x.length;i++){
+			if(x[i].className == 'scmbanner_AckOnly') {
+				x[i].style.display = "inline";		
+			}		
+		}
+	}				
+}

@@ -1,0 +1,217 @@
+//APPD EUM configuration
+window['adrum-start-time'] = new Date().getTime();
+document.write("<script src='/1/content/hongkong/appd/adrum.js' type='text/javascript'></script>");
+//END
+
+// This values are constant for the site
+HSBC.SITE.rgn="Asia Pacific";            //DCSext.geb_rgn (Europe,Americas,..)
+HSBC.SITE.subrgn="Hong Kong";            //DCSext.geb_subrgn (North America, South America,..)
+HSBC.SITE.cnty="Hong Kong SAR";              //DCSext.geb_cnty (Mexico,USA,Great Britain...)
+HSBC.SITE.ent="The Hongkong & Shanghai Banking Corporation Ltd";    //DCSext.geb_ent (HSBC UK, HSBC US,Household,...)
+HSBC.SITE.brand="HSBC";
+HSBC.DCS.ID = "dcsur62uf00000s5nnzq4hvrl_6i5x";
+HSBC.SITE.custgrp="PFS";
+HSBC.PAGE.cg_n="IB;PIB";
+HSBC.SITE.site="IB";
+HSBC.SITE.ibtype="PIB";
+HSBC.SITE.language="en";
+HSBC.SITE.cam="30";
+
+/***************************************************************************************************************
+* Function		: pib_popupPdf(pdfUrl ,windowName, winProperties, query)
+* Description	: Open a new browser (popup)
+* Parameter 	: pdfUrl		:target URL  (<%response.URL ('/content/.../file.pdf')%>) or ('http://3parties.url/file.pdf') or ('/1/content/.../file.pdf')
+* Usage			  windowName 	:window name (default is set to "nb")
+* 			  	  winProperties	:the properties of the target browser (width,height,menubar,toolbar,directories,location,scrollbars,status,resizable')
+* 				  query			:WebTrends query to label the click of the pdf name
+* Author		: Herbert Chau
+* Creation Date	: 20 May 2011
+* Side effect	: N/A
+* Amendment History	:
+* Date		By					Description
+* ---------	------------	--------------------------------------------------------------------------------
+*
+***************************************************************************************************************/
+function pib_popupPdf(pdfUrl ,windowName, winProperties, query) {
+	dcsMultiTrack('DCS.dcsqry',"?fbc=" + query);
+	var popWin;
+	if(winProperties != null && winProperties.length>0){   
+		popWin = window.open(pdfUrl,'popupPdf',winProperties);   	
+	} else {   
+		popWin = window.open(pdfUrl,'popupPdf','');   	
+	}
+	popWin.focus();		 	
+}
+
+/***************************************************************************************************************
+* Function		: pib_popupPdf_furl(pdfUrl ,windowName, winProperties, query, furl)
+* Description	: Open a new browser (popup)
+* Parameter 	: pdfUrl		:target URL  (<%response.URL ('/content/.../file.pdf')%>) or ('http://3parties.url/file.pdf') or ('/1/content/.../file.pdf')
+* Usage			  windowName 	:window name (default is set to "nb")
+* 			  	  winProperties	:the properties of the target browser (width,height,menubar,toolbar,directories,location,scrollbars,status,resizable')
+* 				  query			:WebTrends query to label the click of the pdf name
+*						furl			:Make up WT FURL for the PDF file
+* Author		: Christer Leung
+* Creation Date	: 24 June 2011
+* Side effect	: N/A
+* Amendment History	:
+* Date		By					Description
+* ---------	------------	--------------------------------------------------------------------------------
+*
+***************************************************************************************************************/
+function pib_popupPdf_furl(pdfUrl ,windowName, winProperties, query, furl) {
+	dcsMultiTrack('DCS.dcsqry',"?fbc=" + query,'DCS.dcsuri',furl);
+	var popWin;
+	if(winProperties != null && winProperties.length>0){   
+		popWin = window.open(pdfUrl,'popupPdf',winProperties);   	
+	} else {   
+		popWin = window.open(pdfUrl,'popupPdf','');   	
+	}
+	popWin.focus();		 	
+}
+
+/***************************************************************************************************************
+* Function : function wt_view(SKU_PARAM)
+* Description : This function is for Webtrend View tag
+* Parameter Usage : SKU_PARAM :The SKU_PARAM value
+*
+* Author : Alan Choi
+* Creation Date : 1 June 2006
+* Side effect : N/A
+* Amendment History :
+* Date By Description
+* Date on PIB : 5 January 2009
+* Added by : Herbert Chau (Direct Banking)
+* --------- ------------ --------------------------------------------------------------------------------
+*
+***************************************************************************************************************/
+
+function wt_view(SKU_PARAM) {
+    HSBC.PAGE.pn_sku = SKU_PARAM;
+    HSBC.PAGE.tx_u = "1";
+    HSBC.PAGE.tx_e = "v";
+    HSBC.PAGE.si_n = "ProdConvAll";
+    HSBC.PAGE.si_x = "1";
+}
+
+function wt_check_pridomain() {
+    var url=window.location.host.toString();
+    return (url.indexOf("www1.ebanking")>0) ? true: false;
+}
+
+function add_p2gdomain(obj, url) {
+    if (url.indexOf("p2gdomain")==-1) {
+    	  url += (url.indexOf("?") > -1) ? "&" : "?";
+        url += "p2gdomain=" + window.location.host.toString();
+    }
+    obj.href = url
+}
+
+HSBC.DCS.Doms="www.ebank.hsbc.com.hk,www.ebanking.hsbc.com.hk,www.personal.ebanking.hsbc.com.hk,www.qualityassurance.ebanking.hsbc.com.hk,www.qualityassurance.ebank.hsbc.com.hk,www.britishbank.com,www.hsbcril.com,www.hsbcamanah.com.br,www.hsbcbrazil.com.br,www.hsbc.am,www.hsbc.com,www.equator-africa.com,www.hsbc2e.com,www.hsbcabsolute.com,www.hsbcamanah.com,www.hsbcarabia.com,www.hsbcequator.com,www.hsbcib.com,www.hsbcmarkets.com,www.hsbcmarketsasia.com,www.hsbcmefco.com,www.hsbcpremier.com,www.hsbcprivatebank.com,www.hsbcprivateequity.com,www.hsbcworldmatchplay.com,www.marinemidland.com,www.midlanddirect.com,www.stepovertheline.com,www.hsbc.cz,www.firstdirect.jp,www.hsbc.co.je,www.hsbc.la,www.hsbc.com.mt,www.hsbc.gb.net,www.mlhsbc.co.nz,www.hsbc.com.pa,www.firstdirect.com.qa,www.hsbc.co.za,www.hsbc.com.tr,www.bacb.co.uk,www.hsbc.co.uk,www.hsbcworldmatchplay.co.uk,www.stepovertheline.co.uk,www.hexagon.us,www.firstdirect.am,www.firstdirect.at,www.firstdirect.co.at,www.firstdirect.or.at,www.firstdirect.az,www.firstdirect.com.az,www.firstdirect.bs,www.firstdirect.com.bs,www.firstdirect.be,www.firstdirect.com.br,www.firstdirect.ca,www.firstdirect.com.ky,www.firstdirect.cl,www.fdfella.com,www.firstdirect.com,www.firstdirect-e.com,www.firstdirect-ebank.com,www.firstdirect-internetbank.com,www.firstdirect-octopus.com,www.firstdirectbank.com,www.firstdirect.cz,www.firstdirect.dk,www.firstdirect.com.gi,www.firstdirect.com.gr,www.firstdirect.gr,www.firstdirect.gl,www.firstdirect.co.gg,www.firstdirect.gg,www.firstdirect.co.im,www.firstdirect.co.il,www.firstdirect.co.je,www.firstdirect.je,www.firstdirect.com.jo,www.firstdirect.jo,www.firstdirect.com.kz,www.firstdirect.kz,www.firstdirect.lu,www.firstdirect.com.my,www.firstdirect.co.mu,www.firstdirect.mu,www.firstdirect.com.mx,www.firstdirect.co.mz,www.firstdirect.com.na,www.firstdirect.na,www.fdcom.net,www.fdfella.net,www.fdoctopus.net,www.firstagain.net,www.firstdirect-e.net,www.firstdirect-ebank.net,www.firstdirect-internetbank.net,www.firstdirect-octopus.net,www.littlefella.net,www.firstdirect.co.nz,www.fdcom.org,www.fdglobal.org,www.fdnet.org,www.first-direct.org,www.firstagain.org,www.firstdirect-e.org,www.firstdirect-ebank.org,www.firstdirect-internetbank.org,www.firstdirect-octopus.org,www.firstdirectbank.org,www.firstdirect.biz.pk,www.firstdirect.com.pk,www.firstdirect.com.pa,www.firstdirect.ph,www.firstdirect.com.pl,www.firstdirect.pl,www.firstdirect.com.ru,www.firstdirect.ru,www.firstdirect.com.sg,www.firstdirect.co.za,www.firstdirect.com.es,www.firstdirect.se,www.firstdirect.tm.se,www.firstdirect.in.th,www.firstdirect.tm,www.first-direct.tv,www.firstdirect.tv,www.first-direct.co.uk,www.firstagain.co.uk,www.firstdirect-e.co.uk,www.firstdirect-ebank.co.uk,www.firstdirect-internetbank.co.uk,www.firstdirect-octopus.co.uk,www.firstdirect.com.ve,www.firstdirect.vg,www.hsbcamanah.com,www1.ebanking.hsbc.com.hk,www2.ebanking.hsbc.com.hk,www1.personal.ebanking.hsbc.com.hk,www2.personal.ebanking.hsbc.com.hk,www.stock.qaxpress.hsbc.com.hk,www.stock.express.hsbc.com.hk,www.sx.hsbc.com.hk,www1.stock.express.hsbc.com.hk,www2.stock.express.hsbc.com.hk";
+
+if (typeof dcsEscape == "undefined") {
+	dcsEscape = function (S, REL) {
+		if (REL!=""){
+			S=S.toString();
+			for (var R in REL){
+				if (REL[R] instanceof RegExp){
+					S=S.replace(REL[R],R);
+				}
+			}
+			return S;
+		}
+		else{
+			return escape(S);
+		}
+	}
+}
+if (typeof dcsEncode =="undefined") {
+	dcsEncode = function (S) {
+		return (typeof(encodeURIComponent)=="function")?encodeURIComponent(S):escape(S);
+	}
+}
+
+if (typeof DCS =="undefined") {
+	var DCS = new Object();
+}
+
+var I18NRE={"%25":/\%/g};
+
+if (typeof WT=="undefined") {
+	var WT= new Object();
+}
+
+if (typeof gDscId=="undefined") {
+	var gDscId= new Object();
+}
+
+if (typeof DCSext=="undefined") {
+	var DCSext= new Object();
+}
+
+function dcsFunc(func){
+	if (typeof(window[func])=="function"){
+		window[func]();
+	}
+}
+
+if (typeof dcsMultiTrack == "undefined") {
+	dcsMultiTrack = function () {
+	}
+}
+
+function logToWT(language, camLevel) {
+	if(typeof(TMS) !=  'undefined') {
+		TMS.trackEvent({
+			"page_url" : "/MiQuickQuotePortlet/cmd_miquickquote",
+			"page_title" : document.title
+		});
+	}
+}
+
+/***************************************************************************************************************
+* Function		: getHostingFile(obj_id, fileurl)
+* Description	: get Micro2000 hosting's file path for UAT and production
+* Parameter 	: obj_id		:id of image, a, input etc
+* Usage			  fileurl 		:original file path
+* Author		: Kelvin Leung
+* Creation Date	: 23 Sep 2011
+* Side effect	: N/A
+* Amendment History	:
+* Date		By					Description
+* ---------	------------	--------------------------------------------------------------------------------
+***************************************************************************************************************/
+function getHostingFile(obj_id, fileurl) {
+	// code for Production, return the path directly
+	 var obj = document.getElementById(obj_id);
+	 obj.src = fileurl;			
+	 return;
+}
+
+/***************************************************************************************************************
+* Function			: SCMChkDblClkAndSetCookie(WT_id)
+* Description		: Check PIL/RCF/PTL banner is clicked 
+* Parameter Usage	: WT_id		:WebTrends ID
+* Author			: Derek Wong
+* Creation Date		: 3 Sep 2012
+* Side effect		: N/A
+* Amendment History	:
+* Date			By				Description
+* ---------		------------	--------------------------------------------------------------------------------
+* 3 Sep 2012	Derek Wong		First Edition
+***************************************************************************************************************/
+var isSCMSubmitted = false;
+function SCMChkDblClkAndSetCookie(WT_id){
+	if (WT_id.indexOf('_PIL') > 0 || WT_id.indexOf('_RCF') > 0 || WT_id.indexOf('_PTL') > 0) {
+		if (!isSCMSubmitted) {
+			isSCMSubmitted = true;
+			setDigitalMarketCookie(WT_id);
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		setDigitalMarketCookie(WT_id);
+		return true;
+	}
+}
